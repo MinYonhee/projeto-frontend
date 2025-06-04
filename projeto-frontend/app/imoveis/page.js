@@ -110,13 +110,30 @@ export default function ImoveisPage() {
             <p className="imoveis-desc">Explore opções selecionadas para você. Nosso time está pronto para te ajudar com cada detalhe.</p>
           </div>
           <div className="imoveis-filter-box" onClick={openFilterModal}>
-            <input
-              className="imoveis-filter-input"
-              placeholder="Filtros de Busca"
-              value={filterText}
-              onChange={handleFilterChange}
-              disabled={Object.keys(appliedFilters).length > 0}
-            />
+            <div className="imoveis-filter-input">
+              {Object.keys(appliedFilters).length > 0 ? (
+                <div className="filter-option-tag">
+                  {Object.entries(appliedFilters).map(([key, value]) => (
+                    <span key={key}>
+                      {value}
+                      <span className="remove-filter" onClick={(e) => {
+                        e.stopPropagation();
+                        const newFilters = { ...appliedFilters };
+                        delete newFilters[key];
+                        setAppliedFilters(newFilters);
+                      }}>x</span>
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <input
+                  placeholder="Filtros de Busca"
+                  value={filterText}
+                  onChange={handleFilterChange}
+                  disabled={Object.keys(appliedFilters).length > 0}
+                />
+              )}
+            </div>
             <span className="imoveis-filter-icon"><FaSearch /></span>
           </div>
         </div>

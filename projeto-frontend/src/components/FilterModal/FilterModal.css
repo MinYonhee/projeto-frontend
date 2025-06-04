@@ -1,72 +1,74 @@
 /* src/components/FilterModal/FilterModal.css */
+
+.filter-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* escurece fundo */
+  z-index: 100; /* menor que o modal e o input de filtro */
+}
+
 .filter-modal-content {
-  position: absolute;
-  top: 48px;
-  right: 0;
+  position: fixed;
+  top: 245px; /* <-- ajuste esse valor */
+  right: 40px; /* espaço à direita */
   background: #fff;
-  padding: 24px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 7px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 520px;
+  max-width: 95vw;
+  max-height: 65vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  z-index: 10;
+  z-index: 101; /* acima do overlay, abaixo do input de filtro */
+  height: 320px;
+  font-size: 0.85rem;
 }
 
-/* Ajustes responsivos para telas menores */
+/* Responsivo */
 @media (max-width: 768px) {
   .filter-modal-content {
-    /* Reverte para centralização no flex container */
-    position: static;
-    width: 90%;
-    max-width: 90%;
-    max-height: 90vh;
-    top: auto; /* Reseta */
-    right: auto; /* Reseta */
+    right: 5%;
+    left: 5%;
+    top: 80px;
+    width: auto;
   }
 }
 
-.filter-modal-content h3 {
-  margin-top: 0;
-  margin-bottom: 24px;
-  font-size: 1.2rem;
-  color: #333; /* Cor do texto */
-}
-
 .filter-section {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .filter-section h4 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 1rem;
-  color: #555; /* Cor do texto secundário */
+  margin-bottom: 4px;
+  font-size: 0.88rem;
+  color: #555;
 }
 
 .filter-section input[type="text"],
 .filter-section select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 4px 6px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 0.9rem;
-  box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+  font-size: 0.85rem;
+  box-sizing: border-box;
 }
 
 .filter-option-tag {
   display: inline-flex;
   align-items: center;
-  background-color: #e0f2f1; /* Fundo verde claro */
-  color: #00796b; /* Texto verde escuro */
-  padding: 6px 10px;
-  border-radius: 16px; /* Formato de pill */
-  margin-right: 8px;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
+  background-color: #e0f2f1;
+  color: #00796b;
+  padding: 2px 6px;
+  border-radius: 16px;
+  margin-right: 4px;
+  margin-bottom: 2px;
+  font-size: 0.78rem;
   cursor: pointer;
 }
 
@@ -74,22 +76,22 @@
   margin-left: 8px;
   font-weight: bold;
   cursor: pointer;
-  color: #004d40; /* Verde mais escuro */
+  color: #004d40;
 }
 
 .filter-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 24px;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: -10px;
 }
 
 .filter-actions button {
-  padding: 10px 20px;
+  padding: 5px 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.88rem;
 }
 
 .remove-button {
@@ -110,24 +112,36 @@
   background-color: #388e3c;
 }
 
-/* Ajustes responsivos para telas menores */
+.filter-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-row .filter-section {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .filter-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .filter-section {
+    margin-right: 0 !important;
+  }
+}
+
+/* Responsivo: em telas pequenas volta para coluna */
 @media (max-width: 480px) {
-  .filter-modal-content {
-    padding: 16px;
+  .filter-row {
+    flex-direction: column;
   }
+}
 
-  .filter-modal-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 16px;
-  }
-
-  .filter-section h4 {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-  }
-
-  .filter-actions button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-} 
+.imoveis-filter-input input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}

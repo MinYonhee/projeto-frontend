@@ -1,42 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import './FilterModal.css';
-
-const FilterModal = ({ isVisible, onClose, onApplyFilter, initialFilters = {} }) => {
-  const [selectedFilters, setSelectedFilters] = useState(initialFilters);
-
-  useEffect(() => {
-    setSelectedFilters(initialFilters);
-  }, [initialFilters]);
-
-  const handleInputChange = (category, value) => {
-    setSelectedFilters(prevFilters => ({
-      ...prevFilters,
-      [category]: value,
-    }));
-  };
-
-  const handleTagRemove = (category) => {
-    setSelectedFilters(prevFilters => {
-      const newFilters = { ...prevFilters };
-      delete newFilters[category];
-      return newFilters;
-    });
-  };
-
-  const handleApplyClick = () => {
-    const filtersToApply = Object.fromEntries(
-      Object.entries(selectedFilters).filter(([_, value]) => value !== '')
-    );
-    onApplyFilter(filtersToApply);
-    onClose();
-  };
-
-  const handleRemoveAllClick = () => {
-    setSelectedFilters({});
-    onApplyFilter({});
-    onClose();
-  };
-
   if (!isVisible) return null;
 
   return (
@@ -90,7 +51,6 @@ const FilterModal = ({ isVisible, onClose, onApplyFilter, initialFilters = {} })
           />
         </div>
 
-        {/* Inputs lado a lado */}
         <div className="filter-row">
           <div className="filter-section">
             <h4>Número de Quartos</h4>
@@ -132,6 +92,4 @@ const FilterModal = ({ isVisible, onClose, onApplyFilter, initialFilters = {} })
       </div>
     </div>
   );
-};
-
-export default FilterModal;
+} 
