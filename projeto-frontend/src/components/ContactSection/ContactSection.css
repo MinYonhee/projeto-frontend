@@ -21,6 +21,7 @@
   overflow: hidden; 
   flex-shrink: 0; 
 }
+
 .contact-info {
   width: 50%; 
   display: flex;
