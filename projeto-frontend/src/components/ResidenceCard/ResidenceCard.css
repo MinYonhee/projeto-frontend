@@ -45,6 +45,8 @@
   overflow: hidden; /* Evita que o texto exceda o espaço */
   text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
   display: -webkit-box;
+  text-align: justify;
+  max-width: 480px;
   -webkit-line-clamp: 2; /* Limita a descrição a 2 linhas */
   -webkit-box-orient: vertical;
 }
