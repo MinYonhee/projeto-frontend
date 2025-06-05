@@ -50,7 +50,7 @@
 
 .contact-desc {
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0; /* garanta que não tenha espaço extra acima */
   margin-bottom: 32px;
   max-width: 600px;
@@ -115,7 +115,9 @@
   }
 
   .contact-desc {
-    font-size: 0.9rem; /* Adjust font size for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
+    color: #507073;
+    font-weight: normal;
   }
 } 
 
