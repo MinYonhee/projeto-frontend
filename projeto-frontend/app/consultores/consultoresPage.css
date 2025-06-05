@@ -1,0 +1,35 @@
+main {
+padding: 60px 70px;
+display: flex;
+flex-direction: column;
+gap: 50px;
+}
+
+.section_one h1{
+color: #293E3F;
+font-size: 35px;
+}
+
+.section_one p{
+color: #293E3F;
+font-size: 14px;
+}
+
+.section_two{
+display: flex;
+flex-direction: column;
+gap: 30px;
+}
+
+.section_two .cards{
+padding: 0px 70px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(2, 1fr);
+gap: 25px;
+}
+
+.section_two h1{
+color: #293E3F;
+font-size: 24px;
+}
