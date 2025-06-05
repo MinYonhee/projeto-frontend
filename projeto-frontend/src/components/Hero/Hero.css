@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; 
-  min-width: 320px; 
+  min-width: 480px; 
 }
 .hero-title {
   font-size: 3rem;
@@ -42,9 +42,9 @@
 }
 .hero-desc {
   color: #FCFFFD;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 32px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .hero-search {
@@ -113,7 +113,7 @@
 
 .hero-stats {
   display: flex;
-  gap: 10px; 
+  gap: 30px; 
   margin-top: 80px; 
   align-items: flex-start; 
 }
@@ -186,10 +186,10 @@
 
 .hero-desc.second-section {
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0; /* garanta que não tenha espaço extra acima */
   margin-bottom: 32px;
-  max-width: 600px;
+  max-width: 400px;
   padding: 0px 0px 0px 50px;
 }
 
