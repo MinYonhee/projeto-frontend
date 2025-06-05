@@ -11,6 +11,7 @@
   color: #888; /* Keep color */
   font-size: 0.9rem; /* Keep size */
   margin-bottom: 6px; /* Keep margin */
+  margin-top: 50px; /* empurra para baixo */
   text-transform: uppercase; /* Keep uppercase */
   font-weight: 600; /* Keep bolder */
 }
