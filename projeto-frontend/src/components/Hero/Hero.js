@@ -6,8 +6,8 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 // Dados das estatísticas
 const heroStats = [
   { number: '9.000+', label: 'Clientes satisfeitos' },
-  { number: '4.000+', label: 'Casas e apartamentos vendidos' },
-  { number: '10+', label: 'Impactos ambientais reduzidos' },
+  { number: '4.000+', label: 'Casas e apartamentos<br/>vendidos' },
+  { number: '10+', label: 'Impactos ambientais<br/>reduzidos' },
 ];
 
 // Dados dos cards da segunda seção
@@ -114,7 +114,10 @@ const Hero = () => {
                 <span className="hero-stat-number">
                   <AnimatedNumber finalNumber={stat.number} />
                 </span>
-                <span className="hero-stat-label">{stat.label}</span>
+                <span
+                 className="hero-stat-label"
+                 dangerouslySetInnerHTML={{ __html: stat.label }}
+                ></span>
               </div>
             ))}
           </div>
