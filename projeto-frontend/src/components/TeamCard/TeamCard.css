@@ -162,3 +162,23 @@
     gap: 14px;
   }
 } 
+
+.consultores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+@media (max-width: 900px) {
+  .consultores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .consultores-grid {
+    grid-template-columns: 1fr;
+  }
+} 
