@@ -49,7 +49,7 @@ export default function ImoveisPage() {
       <main className="innerWidth paddings imoveis-main">
         <div className="imoveis-header-row">
           <div>
-            <h1 className="primaryText imoveis-title">Encontre o imóvel<br />perfeito para comprar</h1>
+            <h1 className="imoveis-title">Encontre o imóvel<br />perfeito para comprar</h1>
             <p className="imoveis-desc">Explore opções selecionadas para você. Nosso time está pronto para te ajudar com cada detalhe.</p>
           </div>
           <div className="imoveis-filter-box">
