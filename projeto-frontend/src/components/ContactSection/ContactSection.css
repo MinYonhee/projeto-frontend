@@ -1,11 +1,11 @@
 .contact-section {
-  display: flex;
-  flex-direction: row; 
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3rem;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
   flex-wrap: nowrap;
-  padding: 12rem 2rem; 
+  max-width: 1200px;
+  margin: 120px auto;
 }
 
 .contact-image {
