@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -15,9 +16,15 @@ const ContactSection = () => {
           eficiência energética ou uso inteligente de recursos.
         </p>
         <div className="contact-buttons">
-          <button className="contact-button">Quero comprar um imóvel</button>
-          <button className="contact-button">Quero alugar um imóvel</button>
-          <button className="contact-button">Quero falar com um corretor</button>
+          <Link href="/comprar-imovel">
+            <button className="contact-button">Quero comprar um imóvel</button>
+          </Link>
+          <Link href="/alugar-imoveis">
+            <button className="contact-button">Quero alugar um imóvel</button>
+          </Link>
+          <Link href="/consultores">
+            <button className="contact-button">Quero falar com um corretor</button>
+          </Link>
         </div>
       </div>
       <div className="contact-image">
