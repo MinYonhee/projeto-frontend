@@ -2,45 +2,70 @@
 import Header from '@/components/Header/Header';
 import { FaSearch } from 'react-icons/fa';
 import ResidenceCard from '@/components/ResidenceCard/ResidenceCard';
-import './imoveis.css'; 
-import React, { useState } from 'react';
+import './comprar-imovel.css'; 
+import React, { useState, useEffect, useCallback } from 'react';
 import FilterModal from '@/components/FilterModal/FilterModal';
+import { useRouter } from 'next/navigation';
 
-const residences = [
+// Função para gerar mais cards
+const generateMoreResidences = (startIndex) => {
+  const cities = [
+    'São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Salvador', 'Brasília',
+    'Curitiba', 'Fortaleza', 'Recife', 'Porto Alegre', 'Manaus'
+  ];
+  
+  const types = ['Apartamento', 'Casa', 'Cobertura', 'Flat', 'Studio'];
+  
+  return Array.from({ length: 6 }, (_, i) => ({
+    id: startIndex + i + 1,
+    image: '/placeholder.jpg',
+    price: `$${(Math.random() * 20000 + 5000).toFixed(0)}`,
+    title: `${types[Math.floor(Math.random() * types.length)]} em ${cities[Math.floor(Math.random() * cities.length)]}`,
+    description: 'Possui condomínio, estacionamento, área de lazer, segurança 24h, piscina, academia e salão de festas.'
+  }));
+};
+
+const initialResidences = [
   {
-    image: '',
+    id: 1,
+    image: '/placeholder.jpg',
     price: '$15.000',
-    name: 'Apartamento em Recife - Pernambuco',
+    title: 'Apartamento em Recife - Pernambuco',
     description: 'Possui condominio, estacionamentos com carregadores elétricos, piscinas privativas..'
   },
   {
-    image: '',
+    id: 2,
+    image: '/placeholder.jpg',
     price: '$14.000',
-    name: 'Apartamento em Ondina - Bahia',
+    title: 'Apartamento em Ondina - Bahia',
     description: 'Possui duas suites, estacionamento, tetos solares..'
   },
   {
-    image: '',
+    id: 3,
+    image: '/placeholder.jpg',
     price: '$15.000',
-    name: 'Casa em Porto Alegre - Rio Grande do Sul',
+    title: 'Casa em Porto Alegre - Rio Grande do Sul',
     description: 'Possui primeiro andar, suites em todos os quartos, estacionamento..'
   },
   {
-    image: '',
+    id: 4,
+    image: '/placeholder.jpg',
     price: '$25.000',
-    name: 'Apartamento em Barra da Tijuca - Rio de Janeiro',
+    title: 'Apartamento em Barra da Tijuca - Rio de Janeiro',
     description: 'Possui condominio, parque, área de lazer, academia..'
   },
   {
-    image: '',
+    id: 5,
+    image: '/placeholder.jpg',
     price: '$4.500',
-    name: 'Casa em Tiradentes - Minas Gerais',
+    title: 'Casa em Tiradentes - Minas Gerais',
     description: 'Possui varanda, área verde em torno da casa, dois quartos..'
   },
   {
-    image: '',
+    id: 6,
+    image: '/placeholder.jpg',
     price: '$10.000',
-    name: 'Casa em Vila Nova Conceição - São Paulo',
+    title: 'Casa em Vila Nova Conceição - São Paulo',
     description: 'Possui primeiro andar, banheiro aquecida, tetos solares..'
   },
 ];
@@ -49,6 +74,10 @@ export default function ImoveisPage() {
   const [filterText, setFilterText] = useState('');
   const [isFilterModalVisible, setIsFilterModalVisible] = useState(false);
   const [appliedFilters, setAppliedFilters] = useState({});
+  const [residences, setResidences] = useState(initialResidences);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const router = useRouter();
 
   const handleFilterChange = (event) => {
     setFilterText(event.target.value);
@@ -69,9 +98,49 @@ export default function ImoveisPage() {
     setFilterText('');
   };
 
+  const loadMoreResidences = useCallback(() => {
+    if (isLoading || !hasMore) return;
+    
+    setIsLoading(true);
+    // Simula um delay de carregamento
+    setTimeout(() => {
+      const newResidences = generateMoreResidences(residences.length);
+      setResidences(prev => [...prev, ...newResidences]);
+      setIsLoading(false);
+      
+      // Limita o número total de cards para não sobrecarregar
+      if (residences.length >= 30) {
+        setHasMore(false);
+      }
+    }, 1000);
+  }, [isLoading, hasMore, residences.length]);
+
+  // Observador de interseção para detectar quando o usuário chega próximo ao final da página
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMoreResidences();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const loadMoreTrigger = document.getElementById('load-more-trigger');
+    if (loadMoreTrigger) {
+      observer.observe(loadMoreTrigger);
+    }
+
+    return () => {
+      if (loadMoreTrigger) {
+        observer.unobserve(loadMoreTrigger);
+      }
+    };
+  }, [loadMoreResidences]);
+
   const filteredResidences = residences.filter(res => {
     if (Object.keys(appliedFilters).length === 0 && filterText !== '') {
-         return res.name.toLowerCase().includes(filterText.toLowerCase()) ||
+         return res.title.toLowerCase().includes(filterText.toLowerCase()) ||
                 res.description.toLowerCase().includes(filterText.toLowerCase());
     }
 
@@ -139,9 +208,16 @@ export default function ImoveisPage() {
         </div>
         <div className="imoveis-grid">
           {filteredResidences.map((res, idx) => (
-           <ResidenceCard key={idx} {...res} />
+            <div key={res.id} onClick={() => router.push(`/imovel/${res.id}`)} style={{ cursor: 'pointer' }}>
+              <ResidenceCard {...res} />
+            </div>
           ))}
         </div>
+        {hasMore && (
+          <div id="load-more-trigger" style={{ height: '20px', margin: '20px 0' }}>
+            {isLoading && <div className="loading-spinner">Carregando mais imóveis...</div>}
+          </div>
+        )}
       </main>
       <FilterModal
         isVisible={isFilterModalVisible}

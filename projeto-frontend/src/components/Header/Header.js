@@ -11,6 +11,7 @@ const Header = () => {
     const pathname = usePathname();
     // TODO: Implement actual user login status check (e.g., from context or state management)
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder state
+    const [showDropdown, setShowDropdown] = useState(false);
 
     // Example effect to simulate login status change (remove when implementing actual auth)
     // useEffect(() => {
@@ -22,11 +23,31 @@ const Header = () => {
     return (
         <section className='h-wrapper'>
             <div className='flexCenter paddings innerWidth h-container'>
-                <img src="./vercel.svg" alt="logo" width={100} />
+                <img src="/vercel.svg" alt="logo" width={100} />
 
                 <div className="flexCenter h-menu">
                     <Link href="/" className={pathname === "/" ? "active" : ""}>Home</Link>
-                    <Link href="/imoveis" className={pathname === "/imoveis" ? "active" : ""}>Imóveis</Link>
+                    
+                    <div 
+                        className="dropdown-container"
+                        onMouseEnter={() => setShowDropdown(true)}
+                        onMouseLeave={() => setShowDropdown(false)}
+                    >
+                        <a className={pathname === "/imoveis" ? "active" : ""}>
+                            Imóveis
+                        </a>
+                        {showDropdown && (
+                            <div className="dropdown-menu">
+                                <Link href="/comprar-imovel" className="dropdown-item">
+                                    Comprar Imóveis
+                                </Link>
+                                <Link href="/imoveis/alugar" className="dropdown-item">
+                                    Alugar Imóveis
+                                </Link>
+                            </div>
+                        )}
+                    </div>
+
                     <Link href="/nosso-valor" className={pathname === "/nosso-valor" ? "active" : ""}>Nosso Valor</Link>
                     <Link href="/consultores" className={pathname === "/consultores" ? "active" : ""}>Consultores</Link> 
 

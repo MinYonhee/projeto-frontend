@@ -1,6 +1,0 @@
-.filter-actions {
-  display: flex;
-  justify-content: flex-start; /* Alinha à esquerda */
-  gap: 2px; /* Reduz o espaçamento entre os botões */
-  margin-top: 10px;
-} 

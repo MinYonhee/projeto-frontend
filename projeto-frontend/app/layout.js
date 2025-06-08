@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Projeto Front-End",
-  description: "Meu projeto adaptado de Vite para Next.js",
+  description: "Projeto Urban Valle",
 };
 
 export default function RootLayout({ children }) {

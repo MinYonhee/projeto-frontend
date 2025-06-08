@@ -1,42 +1,30 @@
-/* src/components/FilterModal/FilterModal.css */
-
 .filter-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* escurece fundo */
-  z-index: 100; /* menor que o modal e o input de filtro */
+  background: rgba(0, 0, 0, 0.24); 
+  z-index: 100; 
 }
 
 .filter-modal-content {
   position: fixed;
-  top: 245px; /* <-- ajuste esse valor */
-  right: 40px; /* espaço à direita */
-  background: #fff;
+  top: 245px; 
+  right: 40px;
+  background: #FFFEFC;
   padding: 10px;
   border-radius: 7px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
   width: 520px;
   max-width: 95vw;
   max-height: 65vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  z-index: 101; /* acima do overlay, abaixo do input de filtro */
+  z-index: 101; 
   height: 320px;
   font-size: 0.85rem;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .filter-modal-content {
-    right: 5%;
-    left: 5%;
-    top: 80px;
-    width: auto;
-  }
 }
 
 .filter-section {
@@ -45,15 +33,20 @@
 
 .filter-section h4 {
   margin-bottom: 4px;
-  font-size: 0.88rem;
-  color: #555;
+  font-size: 0.875rem;
+  stroke: normal;
+  color: #293E40;
 }
 
-.filter-section input[type="text"],
+.filter-section input::placeholder{
+  color: #293E40;
+}
+.filter-section input[type="text"], 
 .filter-section select {
   width: 100%;
   padding: 4px 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #507073;
+  color: #293E40;
   border-radius: 4px;
   font-size: 0.85rem;
   box-sizing: border-box;
@@ -62,8 +55,8 @@
 .filter-option-tag {
   display: inline-flex;
   align-items: center;
-  background-color: #e0f2f1;
-  color: #00796b;
+  background-color: #E1EBDB;
+  color: #293E40;
   padding: 2px 6px;
   border-radius: 16px;
   margin-right: 4px;
@@ -88,6 +81,8 @@
 
 .filter-actions button {
   padding: 5px 10px;
+  width: 105px;
+  height: 39px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -95,13 +90,14 @@
 }
 
 .remove-button {
-  background-color: #eee;
-  color: #333;
+  background-color: #FFFEFC;
+  color: #293E40 !important;
+  border: 1px solid #293E40 !important;
 }
 
 .filter-button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #293E40;
+  color: #F7FCFC !important;
 }
 
 .remove-button:hover {
@@ -109,7 +105,7 @@
 }
 
 .filter-button:hover {
-  background-color: #388e3c;
+  background-color: #3C5759;
 }
 
 .filter-row {
@@ -122,6 +118,20 @@
   flex: 1;
 }
 
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .filter-modal-content {
+    right: 5%;
+    left: 5%;
+    top: 80px;
+    width: auto;
+  }
+}
+
+
+
 @media (max-width: 600px) {
   .filter-row {
     flex-direction: column;
@@ -132,7 +142,6 @@
   }
 }
 
-/* Responsivo: em telas pequenas volta para coluna */
 @media (max-width: 480px) {
   .filter-row {
     flex-direction: column;
