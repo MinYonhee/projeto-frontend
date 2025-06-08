@@ -1,15 +1,64 @@
 .footer-section {
-  background-color: #293E40; 
-  color: #FCFFFD; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 1rem;
+  background-color: #293E40;
+  color: #FCFFFD;
+  padding: 3rem 2rem;
 }
 
-.footer-top {
-  margin-bottom: 2rem;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-contact {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.contact-form button {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #FCFFFD;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.footer-promo {
+  flex: 1;
+  min-width: 280px;
+  text-align: right;
 }
 
 .footer-title {
@@ -23,10 +72,11 @@
   margin-bottom: 1.5rem;
   max-width: 600px;
   opacity: 0.8;
+  margin-left: auto;
 }
 
 .footer-button {
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.3);
   border: none;
   border-radius: 4px;
   padding: 0.8rem 2rem;
@@ -42,10 +92,9 @@
 }
 
 .footer-separator {
-  width: 100%;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); 
   margin: 2rem 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-bottom {
@@ -65,7 +114,6 @@
   text-decoration: none;
   font-size: 0.9rem;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -80,22 +128,22 @@
 .footer-circle {
   width: 10px;
   height: 10px;
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent circles */
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 }
 
-/* Responsive adjustments */
+/* Responsivo */
 @media (max-width: 768px) {
-  .footer-title {
-    font-size: 1.5rem;
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-promo {
+    text-align: center;
   }
 
   .footer-desc {
-    font-size: 0.9rem;
+    margin-left: 0;
   }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-} 
+}
