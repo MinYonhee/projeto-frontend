@@ -1,63 +1,29 @@
 .footer-section {
   background-color: #293E40;
   color: #FCFFFD;
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
   flex-wrap: wrap;
-  gap: 2rem;
 }
 
+.footer-promo,
 .footer-contact {
   flex: 1;
   min-width: 280px;
 }
 
-.footer-contact h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.footer-contact p {
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 0.6rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.contact-form textarea {
-  resize: none;
-  height: 100px;
-}
-
-.contact-form button {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #FCFFFD;
-  border: none;
-  padding: 0.6rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
 .footer-promo {
-  flex: 1;
-  min-width: 280px;
+  text-align: left;
+}
+
+.footer-contact {
   text-align: right;
 }
 
@@ -72,7 +38,6 @@
   margin-bottom: 1.5rem;
   max-width: 600px;
   opacity: 0.8;
-  margin-left: auto;
 }
 
 .footer-button {
@@ -91,10 +56,41 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.contact-form {
+  margin-top: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.contact-form button {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #FCFFFD;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e1e1e1;
+}
+
 .footer-separator {
-  margin: 2rem 0;
+  width: 100%;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
 }
 
 .footer-bottom {
@@ -114,6 +110,7 @@
   text-decoration: none;
   font-size: 0.9rem;
   opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -139,11 +136,21 @@
     text-align: center;
   }
 
-  .footer-promo {
+  .footer-promo,
+  .footer-contact {
     text-align: center;
   }
 
+  .footer-title {
+    font-size: 1.5rem;
+  }
+
   .footer-desc {
-    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }
