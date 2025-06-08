@@ -1,15 +1,30 @@
 .footer-section {
-  background-color: #293E40; 
-  color: #FCFFFD; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  background-color: #293E40;
+  color: #FCFFFD;
   padding: 3rem 1rem;
 }
 
-.footer-top {
-  margin-bottom: 2rem;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  flex-wrap: wrap;
+}
+
+.footer-promo,
+.footer-contact {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-promo {
+  text-align: left;
+}
+
+.footer-contact {
+  text-align: right;
 }
 
 .footer-title {
@@ -26,7 +41,7 @@
 }
 
 .footer-button {
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.3);
   border: none;
   border-radius: 4px;
   padding: 0.8rem 2rem;
@@ -41,10 +56,40 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.contact-form {
+  margin-top: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.contact-form button {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #FCFFFD;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e1e1e1;
+}
+
 .footer-separator {
   width: 100%;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); 
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem 0;
 }
 
@@ -80,12 +125,22 @@
 .footer-circle {
   width: 10px;
   height: 10px;
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent circles */
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 }
 
-/* Responsive adjustments */
+/* Responsivo */
 @media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-promo,
+  .footer-contact {
+    text-align: center;
+  }
+
   .footer-title {
     font-size: 1.5rem;
   }
@@ -98,4 +153,4 @@
     flex-direction: column;
     gap: 0.8rem;
   }
-} 
+}
