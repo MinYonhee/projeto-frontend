@@ -56,4 +56,4 @@ export default function ValorSection() {
       </div>
     </section>
   );
-} 
+}
