@@ -46,7 +46,7 @@ export default function ConsultoresPage() {
       <Header />
       <main className="innerWidth paddings valor-main">
         <section className="section_one">
-          <h1 className="equipe-title">Converse com um especialista</h1>
+          <h1 className="equipe-title">Converse com um<br />especialista</h1>
           <p className="equipe-desc">
             Nosso time está aqui para entender sua necessidade e te apresentar as melhores opções.
           </p>
