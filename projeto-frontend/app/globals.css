@@ -6,6 +6,10 @@
   --orange-gradient: linear-gradient(270deg, #ffb978 0%, #ff922d 100%);
   --lightBlue: #eeeeff;
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
+  --background: #fff;
+  --header-bg: #293E40;
+  --header-text: #F7FCFC;
+  --icon: #D1EBDB;
 }
 
 /* Dark theme overrides */
@@ -17,6 +21,10 @@ body.dark {
   --orange-gradient: linear-gradient(270deg, #ffc89f 0%, #ff8c00 100%);
   --lightBlue: #2a2a2a;
   --shadow: 0px 23px 21px -8px rgba(0, 0, 0, 0.25);
+  --background: #293E40;
+  --header-bg: #65898C;
+  --header-text: #293E40;
+  --icon: #293E40;
 }
 
 * {
@@ -29,7 +37,7 @@ body.dark {
 
 body {
   background-color: var(--background);
-  color: #FCFFFD;
+  color: var(--header-text);
 }
 
 a {
@@ -148,4 +156,20 @@ a {
   --blue: #243a7d;
   --lightBlue: #1b1b2f;
   --shadow: 0px 23px 21px -8px rgba(0, 0, 0, 0.3);
+}
+
+.h-wrapper {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+}
+
+.h-menu a,
+.h-menu .loginIconLink,
+.h-menu .toggle-theme-btn {
+  color: var(--icon);
+}
+
+.h-menu .loginIconLink:hover,
+.h-menu .toggle-theme-btn:hover {
+  color: var(--header-text);
 }

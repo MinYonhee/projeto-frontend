@@ -126,12 +126,27 @@
   font-size: 2.5rem; 
   font-weight: 700;
   color: #FCFFFD; 
+  animation: fadeIn 1s ease-in-out; /* Animação aplicada apenas aos números */
 }
+
 .hero-stat-label {
   color: rgba(255, 255, 255, 0.8); 
   font-size: 1rem; 
   margin-top: 4px; 
 }
+
+/* Animação para os números */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-container.new-section {
   display: flex;
   flex-direction: row; 
@@ -168,11 +183,15 @@
 .hero-subtitle {
   font-size: 1.5rem;
   color: #507073;
+  
   font-weight: 400;
   margin-bottom: 0px;
   padding: 110px 0px 0px 50px;
 }
 
+body.dark .hero-subtitle {
+  color: #93BCBF; /* Cor mais legível no modo noturno */
+}
 .hero-title.second-section {
   font-size: 2rem;
   font-weight: 800;
@@ -300,4 +319,51 @@
     height: 300px;
     margin-bottom: 2rem;
   }
+}
+
+body.dark .option-card {
+  background: #293E40;
+  border: 1.5px solid #93BCBF;
+  color: #F7FCFC;
+}
+
+body.dark .option-card h2,
+body.dark .option-card p {
+  color: #F7FCFC;
+}
+
+body.dark .option-card:hover {
+  background: #93BCBF;
+  color: #293E40;
+  border: 1.5px solid #F7FCFC;
+}
+
+body.dark .option-card:hover h2,
+body.dark .option-card:hover p {
+  color: #293E40;
+}
+
+body.dark .hero-contact-card,
+body.dark .hero-contact-options button {
+  background: #293E40;
+  border: 1.5px solid #93BCBF;
+  color: #F7FCFC;
+}
+
+body.dark .hero-contact-card:hover,
+body.dark .hero-contact-options button:hover {
+  background: #93BCBF;
+  color: #293E40;
+  border: 1.5px solid #F7FCFC;
+}
+
+.hero-contact-title {
+  font-size: 1.5rem;
+  color: #507073; /* Cor padrão */
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+body.dark .hero-contact-title {
+  color: #93BCBF; /* Cor mais legível no modo noturno */
 }

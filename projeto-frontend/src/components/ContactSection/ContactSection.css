@@ -47,6 +47,10 @@
   text-shadow: none;
 }
 
+body.dark .contact-label {
+  color: #93BCBF; 
+}
+
 .contact-desc {
   color: var(--primary);
   font-size: 0.8rem;
@@ -80,6 +84,18 @@
 .contact-button:hover {
   background: #f5f5f5;
   border-color: #ddd;
+}
+
+body.dark .contact-button {
+  background: #293E40;
+  border: 1.5px solid #93BCBF;
+  color: #F7FCFC;
+}
+
+body.dark .contact-button:hover {
+  background: #93BCBF;
+  color: #293E40;
+  border: 1.5px solid #F7FCFC;
 }
 
 @media (max-width: 768px) {

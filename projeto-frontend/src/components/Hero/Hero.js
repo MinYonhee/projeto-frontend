@@ -97,16 +97,6 @@ const Hero = () => {
           <p className="hero-desc">
             Possuímos uma proposta de imobiliária focada em habitação <br/> sustentável e acessível que busca atender a demanda crescente por <br/> imóveis que não só respeitem o meio ambiente, mas também sejam <br/> viáveis para diferentes camadas sociais.
           </p>
-          {/* Campo de busca */}
-          <div className="hero-search">
-            <div className="location-box">
-              <FaMapMarkerAlt size={32} color="#769080" />
-            </div>
-            <input type="text" placeholder="Digite a localização" />
-            <div>
-              <button className="search-button">Busque Aqui</button>
-            </div>
-          </div>
           {/* Estatísticas */}
           <div className="hero-stats">
             {heroStats.map((stat, index) => (
@@ -115,8 +105,8 @@ const Hero = () => {
                   <AnimatedNumber finalNumber={stat.number} />
                 </span>
                 <span
-                className="hero-stat-label"
-                dangerouslySetInnerHTML={{ __html: stat.label }}
+                  className="hero-stat-label"
+                  dangerouslySetInnerHTML={{ __html: stat.label }}
                 ></span>
               </div>
             ))}

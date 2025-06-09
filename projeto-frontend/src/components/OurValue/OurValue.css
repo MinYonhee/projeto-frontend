@@ -96,6 +96,19 @@
   text-align: left; /* Align description text to the left */
 }
 
+.team-arrows {
+  display: none; /* Esconde as setas por padrão */
+}
+
+@media (max-width: 768px) {
+  .team-arrows {
+    display: flex; /* Mostra as setas em telas menores */
+    justify-content: center;
+    align-items: center;
+    gap: 16px; /* Espaçamento entre as setas */
+  }
+}
+
 @media (max-width: 900px) {
   .valor-section {
     flex-direction: column;
@@ -118,4 +131,4 @@
   .valor-desc {
     font-size: 0.95rem;
   }
-} 
+}

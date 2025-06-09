@@ -71,7 +71,7 @@ export default function EquipeSection() {
     <section className="equipe-section">
       <div className="equipe-label">Nossa Equipe</div>
       <h2 className="equipe-title">Nossos Desenvolvedores</h2>
-      <p className="equipe-desc">Somos o time de desenvolvedores responsáveis por tornar este projeto realidade. Trabalhamos com foco em qualidade, usabilidade e performance, combinando boas práticas de desenvolvimento com criatividade, sustentabilidade e dedicação. Tudo foi desenvolvido com atenção aos detalhes, pensando em oferecer a melhor experiência para você.</p>
+      <p className="equipe-desc">Somos o time de desenvolvedores responsáveis por tornar este projeto realidade.<br /> Trabalhamos com foco em qualidade, usabilidade e performance, combinando boas práticas de desenvolvimento com criatividade, sustentabilidade e dedicação. Tudo foi desenvolvido com atenção aos detalhes, pensando em oferecer a melhor experiência para você.</p>
       <div className="equipe-slider-container">
         <button 
           className="equipe-slider-arrow prev"

@@ -93,3 +93,28 @@
     max-width: 300px; 
   }
 }
+
+body.dark .popular-residences-header .subtitle {
+  color: #93BCBF;
+}
+
+body.dark .popular-residences-header .title {
+  color: #F7FCFC;
+}
+
+body.dark .popular-residences-header p,
+body.dark .popular-residences-header .desc {
+  color: #F7FCFC;
+}
+
+body.dark .residence-card {
+  background: #293E40;
+  border: 1px solid #93BCBF;
+  color: #F7FCFC;
+}
+
+body.dark .card-title,
+body.dark .card-description,
+body.dark .card-price {
+  color: #F7FCFC;
+}

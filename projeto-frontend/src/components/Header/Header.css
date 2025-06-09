@@ -1,10 +1,14 @@
 .h-wrapper {
-    background-color: var(--primary); /* Cor de fundo específica do header */
-    height: 121px; /* Altura específica do header */
-    color: #F7FCFC; /* Cor do texto padrão dentro do header */
-    position: relative; /* Necessário para posicionamento absoluto do menu mobile */
-    z-index: 99; /* Garante que o header fique sobre outros elementos */
-    /* Propriedades como width e padding são tratadas por .innerWidth e .paddings no JSX */
+  background-color: var(--header-bg); /* Cor padrão */
+  color: var(--header-text); /* Cor padrão do texto */
+  height: 70px;
+  position: relative;
+  z-index: 99;
+}
+
+body.dark .h-wrapper {
+  background-color: #65898C; /* Cor do fundo no modo noturno */
+  color: #232E2C; /* Cor do texto e ícones no modo noturno */
 }
 
 .h-container {
@@ -23,6 +27,45 @@
     cursor:pointer;
 }
 
+.h-menu a {
+  color: #F7FCFC; /* Branco por padrão */
+  text-decoration: none;
+}
+
+body.dark .h-menu a {
+  color: #232E2C; /* Cor dos links no modo noturno */
+}
+
+body.dark .h-menu a:hover {
+  color: #F7FCFC; /* Cor do texto no hover no modo noturno */
+}
+
+body.dark .h-menu a.active {
+  border-bottom: 2px solid #F7FCFC; /* Destaque para o link ativo no modo noturno */
+}
+
+.header-icons-group button {
+  background: none;
+  border: none;
+  color: #D1EBDB; /* Cor padrão do ícone */
+}
+
+body.dark .header-icons-group button {
+  color: #232E2C; /* Cor do ícone no modo noturno */
+}
+
+body.dark .header-icons-group button:hover {
+  color: #F7FCFC; /* Cor do ícone no hover no modo noturno */
+}
+
+.header-icons-separator {
+  background: var(--header-text); /* Cor padrão da barra */
+}
+
+body.dark .header-icons-separator {
+  background: #232E2C; /* Cor da barra no modo noturno */
+}
+
 .h-container {
     justify-content: space-between;
     padding-top: 1rem;
@@ -32,7 +75,7 @@
 
 /* .h-logo não precisa de estilos de layout se o pai (.h-container com flexCenter) já os gerencia */
 .h-logo img {
-    height: 60px; /* Altura específica da imagem do logo */
+    height: 50px; /* Altura específica da imagem do logo */
 }
 
 .h-menu {
@@ -44,12 +87,40 @@
     cursor: pointer; /* Cursor para indicar interatividade, mais específico que *:hover global */
 }
 
-.h-menu a {
-    color: #F7FCFC;
-    position: relative; /* Pode ser necessário para efeitos mais avançados ou underline customizado */
-    padding-bottom: 4px; /* Espaço entre o texto e a parte de baixo (útil para o underline) */
-    transition: text-decoration 0.3s ease, color 0.3s ease; /* Transição suave para os efeitos de underline e cor */
-    /* Propriedades como color (padrão é herdado de .h-container), text-decoration (none globalmente), font-size e font-weight devem vir de estilos globais ou herança, a menos que sejam específicas do menu */
+.h-menu a,
+.h-menu .loginIconLink,
+.h-menu .toggle-theme-btn {
+  color: #F7FCFC; /* Branco por padrão */
+  transition: color 0.2s;
+}
+
+.h-menu a:hover,
+.h-menu .loginIconLink:hover,
+.h-menu .toggle-theme-btn:hover {
+  color: #D1EBDB; /* Verde no hover */
+}
+
+.h-menu a.active {
+    color: #D1EBDB; /* Verde quando ativo */
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+.userIcon {
+  color: inherit;
+  transition: color 0.2s;
+  vertical-align: middle;
+  margin-bottom: -3px;
+}
+
+.toggle-theme-btn svg {
+  color: inherit;
+  background: transparent !important;
+  border-radius: 50%;
+  fill: currentColor !important;
+  transition: color 0.2s;
+  margin-top: -3px;
 }
 
 /* Underline no hover, apenas se NÃO for o link ativo */
@@ -72,14 +143,14 @@
     width: 40px; /* Tamanho específico do ícone */
     height: 40px; /* Tamanho específico do ícone */
     margin-left: 16px; /* Espaçamento à esquerda do ícone */
-    color: #D1EBDB;; /* Cor do ícone */
+    color: #D1EBDB; /* Verde por padrão */
     font-size: 1.5rem; /* Tamanho visual do ícone */
     transition: color 0.2s ease-in-out; /* Transição suave para a cor no hover */
     /* Propriedades de layout flex (display, align-items, justify-content) devem vir do pai (.h-menu com flexCenter) */
 }
 
 .h-user-icon:hover {
-    color: #F7FCFC; /* Cor do ícone no hover */
+    color: #F7FCFC; /* Branco no hover */
     /* cursor: pointer já coberto por .h-menu>*:hover */
 }
 
@@ -126,11 +197,56 @@
 }
 
 .h-menu a {
-    color: #F7FCFC;
-    position: relative; /* Pode ser necessário para efeitos mais avançados ou underline customizado */
-    padding-bottom: 4px; /* Espaço entre o texto e a parte de baixo (útil para o underline) */
-    transition: text-decoration 0.3s ease, color 0.3s ease; /* Transição suave para os efeitos de underline e cor */
-    /* Propriedades como color (padrão é herdado de .h-container), text-decoration (none globalmente), font-size e font-weight devem vir de estilos globais ou herança, a menos que sejam específicas do menu */
+  color: #F7FCFC; /* Branco por padrão */
+  text-decoration: none;
+}
+
+body.dark .h-menu a {
+  color: #232E2C; /* Cor dos links no modo noturno */
+}
+
+body.dark .h-menu a:hover {
+  color: #F7FCFC; /* Cor do texto no hover no modo noturno */
+}
+
+body.dark .h-menu a.active {
+  border-bottom: 2px solid #F7FCFC; /* Destaque para o link ativo no modo noturno */
+}
+
+.h-menu a,
+.h-menu .loginIconLink,
+.h-menu .toggle-theme-btn {
+  color: #F7FCFC; /* Branco por padrão */
+  transition: color 0.2s;
+}
+
+.h-menu a:hover,
+.h-menu .loginIconLink:hover,
+.h-menu .toggle-theme-btn:hover {
+  color: #D1EBDB; /* Verde no hover */
+}
+
+.h-menu a.active {
+    color: #D1EBDB; /* Verde quando ativo */
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+.userIcon {
+  color: inherit;
+  transition: color 0.2s;
+  vertical-align: middle;
+  margin-bottom: -3px;
+}
+
+.toggle-theme-btn svg {
+  color: inherit;
+  background: transparent !important;
+  border-radius: 50%;
+  fill: currentColor !important;
+  transition: color 0.2s;
+  margin-top: -3px;
 }
 
 /* Underline no hover, apenas se NÃO for o link ativo */
@@ -153,14 +269,14 @@
     width: 40px; /* Tamanho específico do ícone */
     height: 40px; /* Tamanho específico do ícone */
     margin-left: 16px; /* Espaçamento à esquerda do ícone */
-    color: #D1EBDB;; /* Cor do ícone */
+    color: #D1EBDB; /* Verde por padrão */
     font-size: 1.5rem; /* Tamanho visual do ícone */
     transition: color 0.2s ease-in-out; /* Transição suave para a cor no hover */
     /* Propriedades de layout flex (display, align-items, justify-content) devem vir do pai (.h-menu com flexCenter) */
 }
 
 .h-user-icon:hover {
-    color: #F7FCFC; /* Cor do ícone no hover */
+    color: #F7FCFC; /* Branco no hover */
     /* cursor: pointer já coberto por .h-menu>*:hover */
 }
 
@@ -203,6 +319,8 @@
 }
 
 .dropdown-menu {
+  background-color: #FCFFFD; /* Fundo claro */
+  color: #232E2C; /* Texto escuro para modo claro */
     position: absolute;
     top: 100%;
     left: 0;
@@ -214,15 +332,75 @@
     z-index: 1000;
 }
 
+body.dark .dropdown-menu {
+  background-color: #65898C; /* Fundo escuro para modo noturno */
+  color: #F7FCFC; /* Texto claro para modo noturno */
+}
+
 .dropdown-item {
     display: block;
     padding: 10px 20px;
-    color: #333;
+    color: #232E2C; /* Texto escuro para modo claro */
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
+body.dark .dropdown-item {
+    color: #F7FCFC; /* Texto claro para modo noturno */
+}
+
 .dropdown-item:hover {
-    background-color: #f5f5f5;
-    color: #007bff;
+    background-color: #E7FFF0;
+    color: #232E2C; /* Mantém texto escuro no hover */
+}
+
+body.dark .dropdown-item:hover {
+    background-color: #4A6B6E;
+    color: #F7FCFC; /* Mantém texto claro no hover */
+}
+
+.toggle-theme-btn {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #D1EBDB; /* Verde por padrão */
+}
+
+.toggle-theme-btn svg {
+  background: transparent !important;
+  border-radius: 50%;
+  fill: currentColor !important;
+  transition: color 0.2s;
+  margin-top: -3px;
+}
+
+.toggle-theme-btn:hover {
+  color: #F7FCFC; /* Branco no hover */
+}
+
+.h-container img {
+  display: block;
+  height: 50px;
+  margin-top: -8px;
+}
+
+.header-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icons-separator {
+  display: inline-block;
+  width: 1.5px;
+  height: 22px;
+  background: #D1EBDB;
+  margin: 0 6px;
+  border-radius: 2px;
+  opacity: 0.7;
 }

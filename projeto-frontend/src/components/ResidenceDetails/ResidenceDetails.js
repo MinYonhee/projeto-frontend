@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '@/components/Header/Header';
 import './DetalhesImovel.css';
 
 const mockImovel = {
@@ -32,8 +31,7 @@ export default function DetalhesImovel() {
   const imovel = mockImovel;
 
   return (
-    <>
-      <Header />
+    <div>
       <div className="detalhes-bg-wrapper">
         <div className="container">
           <div className="topSection">
@@ -68,6 +66,6 @@ export default function DetalhesImovel() {
           </div>
         </div>
       </div>
-    </>
+  </div>
   );
 }
