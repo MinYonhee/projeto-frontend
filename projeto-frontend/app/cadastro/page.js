@@ -5,6 +5,7 @@ import './cadastro.css';
 import { LiaUserCircle } from "react-icons/lia";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
+import { registerNewUser } from '@/services/backforappApi';
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -54,10 +55,12 @@ function SignupPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
       console.log('Cadastro válido:', formData);
+      await registerNewUser(formData.nome, formData.sobrenome, formData.email, formData.telefone, formData.senha);
+      router.push("/");
     }
   };
 

@@ -29,4 +29,22 @@ const getPropertyById = async (id) => {
   }
 }
 
-export { getAllProperties, getPropertyById };
+const registerNewUser = async (name, surname, email, phoneNumber, password) => {
+  try {
+    const respose = await api.post('/users', {
+      username: email,
+      email: email,
+      password: password,
+      name: name,
+      surname: surname,
+      phoneNumber: phoneNumber
+    });
+
+    return respose.data;
+  } catch (error) {
+    console.error(`An error occurred while trying to register a new user: ${error}`);
+  }
+}
+
+export { getAllProperties, getPropertyById, registerNewUser };
+
