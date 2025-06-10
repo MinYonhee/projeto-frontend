@@ -1,0 +1,170 @@
+.imoveis-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 64px 24px;
+  }
+  
+  .imoveis-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  
+  .imoveis-title {
+    margin-bottom: 12px;
+    line-height: 1.2;
+    font-size: 2.5rem;
+    color: #293E40;
+  } 
+  
+  .imoveis-desc {
+    color: #444;
+    font-size: 1.1rem;
+    max-width: 550px;
+  }
+  
+  .imoveis-filter-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0 16px;
+    height: 45px;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 102;
+    gap: 8px;
+  }
+  
+  .imoveis-filter-input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    flex: 1;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .imoveis-filter-input input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .filter-option-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e0f2f1;
+    color: #00796b;
+    padding: 2px 6px;
+    border-radius: 16px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .remove-filter {
+    margin-left: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #004d40;
+  }
+  
+  .imoveis-filter-icon {
+    color: #888;
+    font-size: 1.2rem;
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+  
+  .imoveis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    justify-items: center;
+  }
+  
+  .loading-spinner {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+  
+  .loading-spinner::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+  
+    .imoveis-main {
+      padding: 32px 16px 48px 16px;
+    }
+  
+    .imoveis-header-row {
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+  
+    .imoveis-title {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+  
+    .imoveis-desc {
+      font-size: 1rem;
+    }
+  
+    .imoveis-filter-box {
+      min-width: 100%;
+    }
+  
+    .imoveis-grid {
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+  }
+  
+  @media (max-width: 480px) {
+    .imoveis-main {
+      padding: 24px 12px 32px 12px;
+    }
+  
+    .imoveis-title {
+      font-size: 1.8rem;
+    }
+  
+    .imoveis-desc {
+      font-size: 0.9rem;
+    }
+  
+    .imoveis-grid {
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  } 

@@ -3,6 +3,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  background: var(--background);
 }
 
 .section_two {
@@ -59,7 +60,7 @@ main {
 }
 
 .section_two h1 {
-  color: #293e3f;
+  color: var(--header-text);
   font-size: 24px;
 }
 

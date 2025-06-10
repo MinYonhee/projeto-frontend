@@ -1,29 +1,41 @@
-.equipe-section {
-  margin-top: 48px;
-  position: relative;
+.equipe-section,
+.section_one,
+.section_two {
+  padding-left: 32px;
+  text-align: left;
 }
 
 .equipe-label {
-  color: #888;
+  color: #507073;
   font-size: 0.9rem;
   margin-bottom: 6px;
   text-transform: uppercase;
   font-weight: 600;
 }
 
+.equipe-title,
+.equipe-desc,
+.section_two .equipe-title,
+.equipe-card-area,
+.equipe-card-nome,
+.equipe-card-desc {
+  color: #293E40;
+}
+
 .equipe-title {
   font-size: 2rem;
   font-weight: 800;
-  color: #111;
   margin-bottom: 14px;
   line-height: 1.1;
+  text-align: left;
 }
 
 .equipe-desc {
-  color: #444;
+  color: #293E40;
   font-size: 1rem;
   margin-bottom: 32px;
-  max-width: 480px;
+  max-width: 700px;
+  text-align: left;
 }
 
 .equipe-slider {
@@ -94,7 +106,7 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-  border: 1px solid #eee;
+  border: #8CA796 1px solid;
 }
 
 .equipe-card:hover {
@@ -125,7 +137,6 @@
   background-color: #ccc;
 }
 
-
 .equipe-card-body {
   padding: 18px 16px 14px 16px;
   display: flex;
@@ -133,24 +144,21 @@
   gap: 4px;
 }
 
+.equipe-card-nome {
+  order: -1;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
 .equipe-card-area {
-  color: #888;
   font-size: 0.85rem;
   margin-bottom: 2px;
 }
 
-.equipe-card-nome {
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin-bottom: 4px;
-  color: #414141;
-}
-
 .equipe-card-desc {
-  color: #666;
   font-size: 0.9rem;
 }
-
 
 @media (max-width: 700px) {
   .equipe-desc {
@@ -168,6 +176,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+  justify-items: center;
   justify-content: center;
   padding: 16px 0;
 }
@@ -181,5 +190,45 @@
 @media (max-width: 600px) {
   .consultores-grid {
     grid-template-columns: 1fr;
+  }
+} 
+
+.section_one {
+  padding-left: 32px;
+}
+
+.section_two .equipe-title {
+  font-size: 1.3rem;
+  padding-left: 0;
+} 
+
+body.dark main {
+  background: #293E40;
+}
+
+body.dark .equipe-title,
+body.dark .equipe-desc,
+body.dark .section_two .equipe-title {
+  color: #F7FCFC;
+}
+
+body.dark .equipe-card {
+  background: #293E40;
+  border: #8CA796 1px solid;
+}
+
+body.dark .equipe-card-area,
+body.dark .equipe-card-nome,
+body.dark .equipe-card-desc {
+  color: #F7FCFC;
+}
+
+body.dark .equipe-label {
+  color: #F7FCFC;
+}
+
+@media (min-width: 901px) {
+  .equipe-slider-arrow {
+    display: none !important;
   }
 } 

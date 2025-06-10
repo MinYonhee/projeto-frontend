@@ -1,4 +1,5 @@
-import "./globals.css"; 
+import "./globals.css";
+import ThemeEffect from "../src/components/ThemeEffect";
 
 export const metadata = {
   title: "Projeto Front-End",
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeEffect />
+        {children}
+      </body>
     </html>
   );
 }
