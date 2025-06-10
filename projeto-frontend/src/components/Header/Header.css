@@ -250,3 +250,13 @@ body.dark .h-user-icon:hover,
 body.dark .toggle-theme-btn:hover {
   color: #F7FCFC; /* Branco no hover no modo noturno */
 }
+
+.h-logo {
+  position: relative;
+  z-index: 2000;
+}
+
+.h-logo img {
+  height: 50px;
+  display: block;
+}

@@ -25,7 +25,14 @@ const Header = () => {
     return (
         <section className='h-wrapper'>
             <div className='flexCenter paddings innerWidth h-container'>
-                <img src="assets/logo.png" alt="logo" width={50}/>
+
+                {/* ✅ Exibe a logo corretamente, sem esconder nem sumir */}
+                <img
+                    src="/assets/logo.png" // ← use este caminho se estiver dentro de public/assets/
+                    alt="Logo do site"
+                    width={50}
+                    height={50}
+                />
 
                 <div className="flexCenter h-menu">
                     <Link href="/" className={pathname === "/" ? "active" : ""}>Home</Link>
