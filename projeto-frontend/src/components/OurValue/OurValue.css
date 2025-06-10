@@ -45,7 +45,6 @@
   padding: 12px 20px;
   min-width: 300px;
   max-width: 480px;
-  margin-bottom: 0;
   text-align: center;
   font-weight: 600;
   color: #333;
@@ -61,43 +60,6 @@
 .valor-card-title {
   font-weight: 600;
   font-size: 1rem;
-  margin-bottom: 0;
-}
-
-.valor-card-desc {
-  display: none;
-}
-
-.valor-arch-img {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  min-width: 320px;
-  padding-top: 0;
-}
-
-.valor-arch {
-  width: 380px;
-  height: 420px;
-  background: #e5e7eb;
-  border-radius: 50% 50% 0 0 / 50% 50% 0 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: none;
-  overflow: hidden;
-  position: relative;
-}
-
-.valor-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50% 50% 0 0 / 50% 50% 0 0;
-}
-
-.valor-card.open {
-  border-color: #aaa;
-  padding-bottom: 20px;
 }
 
 .valor-card-description {
@@ -105,6 +67,35 @@
   font-size: 0.9rem;
   color: #555;
   text-align: left;
+}
+
+.valor-card.open {
+  border-color: #aaa;
+  padding-bottom: 20px;
+}
+
+/* ARCO */
+.valor-arch-img {
+  width: 100%;
+  max-width: 480px; /* Ajuste conforme necessário */
+  margin: 0 auto;
+}
+
+.valor-arch {
+  width: 100%;
+  aspect-ratio: 1 / 1.2; /* Proporção do bloco */
+  overflow: hidden;
+  border-radius: 100% 100% 0 0; /* Arredonda só o topo */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Fundo opcional para contraste */
+}
+
+/* IMAGEM SOBREPOSTA */
+.valor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche mantendo proporção */
+  display: block;
 }
 
 @media (max-width: 900px) {
@@ -134,3 +125,11 @@
     font-size: 0.95rem;
   }
 }
+
+.valor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+}
+
