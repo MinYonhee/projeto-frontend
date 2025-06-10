@@ -236,3 +236,20 @@ body {
     flex-direction: column;
   }
 }
+
+.login-button {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  background-color: transparent;
+  color: #314743;
+  border: none;
+  text-decoration: underline;
+}
+
+.login-button:hover {
+  background-color: #f1f1f1;
+}
+

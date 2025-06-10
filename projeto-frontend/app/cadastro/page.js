@@ -58,7 +58,6 @@ function SignupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      console.log('Cadastro válido:', formData);
       await registerNewUser(formData.nome, formData.sobrenome, formData.email, formData.telefone, formData.senha);
       router.push("/");
     }
@@ -66,6 +65,10 @@ function SignupPage() {
 
   const handleBackClick = () => {
     router.back();
+  };
+
+  const handleLoginRedirect = () => {
+    router.push('/');
   };
 
   return (
@@ -174,6 +177,7 @@ function SignupPage() {
 
           <div className="form-buttons-group">
             <button className="back-button" onClick={handleBackClick}>Voltar</button>
+            <button className="login-button" onClick={handleLoginRedirect}>Já tem uma conta? Faça login</button>
           </div>
         </div>
 
