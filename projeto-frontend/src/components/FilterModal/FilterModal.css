@@ -41,6 +41,11 @@
 .filter-section input::placeholder{
   color: #293E40;
 }
+
+body.dark .filter-section input::placeholder {
+  color: #F7FCFC; /* Cor do placeholder no modo noturno */
+}
+
 .filter-section input[type="text"], 
 .filter-section select {
   width: 100%;

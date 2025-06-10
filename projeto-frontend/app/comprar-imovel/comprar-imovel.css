@@ -84,6 +84,8 @@
   font-size: 1.2rem;
   margin-left: 8px;
   flex-shrink: 0;
+  position: relative;
+  top: 3px;
 }
 
 .imoveis-grid {
@@ -167,4 +169,45 @@
     gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+}
+
+body.dark .imoveis-main {
+  background: #293E40;
+}
+
+body.dark .imoveis-title,
+body.dark .imoveis-desc {
+  color: #F7FCFC;
+}
+
+body.dark .residence-card {
+  background: #39585A;
+  border: 1px solid #C3D3C2;
+}
+
+body.dark .card-title,
+body.dark .card-description,
+body.dark .card-price {
+  color: #F7FCFC;
+}
+
+body.dark .imoveis-filter-box {
+  background: #39585A;
+  border: 1px solid #C3D3C2;
+  color: #F7FCFC;
+}
+
+body.dark .imoveis-filter-box input,
+body.dark .imoveis-filter-box .imoveis-filter-icon,
+body.dark .imoveis-filter-box button,
+body.dark .imoveis-filter-box span {
+  color: #F7FCFC !important;
+}
+
+body.dark .imoveis-filter-box input {
+  color: #F7FCFC !important;
+}
+
+body.dark .imoveis-filter-box input::placeholder {
+  color: #F7FCFC !important;
 } 

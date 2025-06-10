@@ -87,31 +87,30 @@ body.dark .header-icons-separator {
     cursor: pointer; /* Cursor para indicar interatividade, mais específico que *:hover global */
 }
 
-.h-menu a,
-.h-menu .loginIconLink,
-.h-menu .toggle-theme-btn {
-  color: #F7FCFC; /* Branco por padrão */
-  transition: color 0.2s;
-}
-
 .h-menu a:hover,
 .h-menu .loginIconLink:hover,
 .h-menu .toggle-theme-btn:hover {
   color: #D1EBDB; /* Verde no hover */
 }
 
+.h-menu a:hover:not(.active) {
+    text-decoration: underline; /* Adiciona o underline no hover */
+    text-underline-offset: 6px; /* Distância do underline no hover */
+}
+
 .h-menu a.active {
     color: #D1EBDB; /* Verde quando ativo */
     text-decoration: underline;
-    text-underline-offset: 6px;
+    text-underline-offset: 6px; /* Distância do underline no estado ativo */
     text-decoration-thickness: 2px;
 }
 
-.userIcon {
-  color: inherit;
-  transition: color 0.2s;
-  vertical-align: middle;
-  margin-bottom: -3px;
+.h-user-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 16px;
+    font-size: 1.5rem;
+    transition: color 0.2s ease-in-out;
 }
 
 .toggle-theme-btn svg {
@@ -123,182 +122,47 @@ body.dark .header-icons-separator {
   margin-top: -3px;
 }
 
-/* Underline no hover, apenas se NÃO for o link ativo */
-.h-menu a:hover:not(.active) {
-    text-decoration: underline; /* Adiciona o underline no hover */
-    text-underline-offset: 6px; /* Distância do underline no hover */
-    text-decoration-thickness: 2px; /* Espessura do underline no hover */
-    color: #F7FCFC; /* Cor do texto no hover (quando não ativo) */
+/* Definicoes de cor para icones de login e tema */
+.h-user-icon,
+.toggle-theme-btn {
+  color: #D1EBDB; /* Verde padrão */
 }
 
-/* Estilo do link ativo */
-.h-menu a.active {
-    text-underline-offset: 6px; /* Distância do underline no estado ativo */
-    text-decoration: underline; /* Adiciona o underline no estado ativo */
-    text-decoration-thickness: 2px; /* Espessura do underline no estado ativo */
-    color: #D1EBDB; /* Cor do texto no estado ativo */
+.h-user-icon:hover,
+.toggle-theme-btn:hover {
+  color: #F7FCFC; /* Branco no hover */
 }
 
-.h-user-icon {
-    width: 40px; /* Tamanho específico do ícone */
-    height: 40px; /* Tamanho específico do ícone */
-    margin-left: 16px; /* Espaçamento à esquerda do ícone */
-    color: #D1EBDB; /* Verde por padrão */
-    font-size: 1.5rem; /* Tamanho visual do ícone */
-    transition: color 0.2s ease-in-out; /* Transição suave para a cor no hover */
-    /* Propriedades de layout flex (display, align-items, justify-content) devem vir do pai (.h-menu com flexCenter) */
+body.dark .h-user-icon,
+body.dark .toggle-theme-btn {
+  color: #D1EBDB; /* Verde no modo noturno */
 }
 
-.h-user-icon:hover {
-    color: #F7FCFC; /* Branco no hover */
-    /* cursor: pointer já coberto por .h-menu>*:hover */
+body.dark .h-user-icon:hover,
+body.dark .toggle-theme-btn:hover {
+  color: #F7FCFC; /* Branco no hover no modo noturno */
 }
 
-/* Ajustes para telas menores */
-@media (max-width: 700px) {
-    .h-menu {
-        /* Posicionamento e layout do menu mobile (sobrescrevendo flexCenter) */
-        position: absolute; /* Posicionamento absoluto */
-        top: 121px; /* Posiciona abaixo do header */
-        right: 0; /* Alinha à direita */
-        background-color: var(--primary); /* Cor de fundo do menu mobile */
-        flex-direction: column; /* Empilha itens verticalmente */
-        padding: 16px; /* Padding interno do menu mobile */
-        display: none; /* Oculta por padrão */
-    }
-    .h-menu.open {
-        display: flex; /* Mostra quando a classe 'open' está presente (controlada com JS/React) */
-    }
-    .h-logo img {
-        width: 80px; /* Ajuste de tamanho do logo em telas menores */
-    }
-    /* Outros ajustes responsivos para .h-container, .h-menu a, etc., se necessário, mas o básico de layout vem dos utilitários e do menu mobile posicionado */
+.h-container img {
+  display: block;
+  height: 50px;
+  margin-top: -8px;
 }
 
-.h-container {
-    justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: var(--secondary);
+.header-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* .h-logo não precisa de estilos de layout se o pai (.h-container com flexCenter) já os gerencia */
-.h-logo img {
-    height: 60px; /* Altura específica da imagem do logo */
-}
-
-.h-menu {
-    gap: 2rem; /* Espaçamento específico entre os itens do menu */
-    /* Propriedades de layout flex (display, align-items, flex-wrap) são tratadas por .flexCenter no JSX */
-}
-
-.h-menu > *:hover {
-    cursor: pointer; /* Cursor para indicar interatividade, mais específico que *:hover global */
-}
-
-.h-menu a {
-  color: #F7FCFC; /* Branco por padrão */
-  text-decoration: none;
-}
-
-body.dark .h-menu a {
-  color: #232E2C; /* Cor dos links no modo noturno */
-}
-
-body.dark .h-menu a:hover {
-  color: #F7FCFC; /* Cor do texto no hover no modo noturno */
-}
-
-body.dark .h-menu a.active {
-  border-bottom: 2px solid #F7FCFC; /* Destaque para o link ativo no modo noturno */
-}
-
-.h-menu a,
-.h-menu .loginIconLink,
-.h-menu .toggle-theme-btn {
-  color: #F7FCFC; /* Branco por padrão */
-  transition: color 0.2s;
-}
-
-.h-menu a:hover,
-.h-menu .loginIconLink:hover,
-.h-menu .toggle-theme-btn:hover {
-  color: #D1EBDB; /* Verde no hover */
-}
-
-.h-menu a.active {
-    color: #D1EBDB; /* Verde quando ativo */
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px;
-}
-
-.userIcon {
-  color: inherit;
-  transition: color 0.2s;
-  vertical-align: middle;
-  margin-bottom: -3px;
-}
-
-.toggle-theme-btn svg {
-  color: inherit;
-  background: transparent !important;
-  border-radius: 50%;
-  fill: currentColor !important;
-  transition: color 0.2s;
-  margin-top: -3px;
-}
-
-/* Underline no hover, apenas se NÃO for o link ativo */
-.h-menu a:hover:not(.active) {
-    text-decoration: underline; /* Adiciona o underline no hover */
-    text-underline-offset: 6px; /* Distância do underline no hover */
-    text-decoration-thickness: 2px; /* Espessura do underline no hover */
-    color: #F7FCFC; /* Cor do texto no hover (quando não ativo) */
-}
-
-/* Estilo do link ativo */
-.h-menu a.active {
-    text-underline-offset: 6px; /* Distância do underline no estado ativo */
-    text-decoration: underline; /* Adiciona o underline no estado ativo */
-    text-decoration-thickness: 2px; /* Espessura do underline no estado ativo */
-    color: #D1EBDB; /* Cor do texto no estado ativo */
-}
-
-.h-user-icon {
-    width: 40px; /* Tamanho específico do ícone */
-    height: 40px; /* Tamanho específico do ícone */
-    margin-left: 16px; /* Espaçamento à esquerda do ícone */
-    color: #D1EBDB; /* Verde por padrão */
-    font-size: 1.5rem; /* Tamanho visual do ícone */
-    transition: color 0.2s ease-in-out; /* Transição suave para a cor no hover */
-    /* Propriedades de layout flex (display, align-items, justify-content) devem vir do pai (.h-menu com flexCenter) */
-}
-
-.h-user-icon:hover {
-    color: #F7FCFC; /* Branco no hover */
-    /* cursor: pointer já coberto por .h-menu>*:hover */
-}
-
-/* Ajustes para telas menores */
-@media (max-width: 700px) {
-    .h-menu {
-        /* Posicionamento e layout do menu mobile (sobrescrevendo flexCenter) */
-        position: absolute; /* Posicionamento absoluto */
-        top: 121px; /* Posiciona abaixo do header */
-        right: 0; /* Alinha à direita */
-        background-color: var(--primary); /* Cor de fundo do menu mobile */
-        flex-direction: column; /* Empilha itens verticalmente */
-        padding: 16px; /* Padding interno do menu mobile */
-        display: none; /* Oculta por padrão */
-    }
-    .h-menu.open {
-        display: flex; /* Mostra quando a classe 'open' está presente (controlada com JS/React) */
-    }
-    .h-logo img {
-        width: 80px; /* Ajuste de tamanho do logo em telas menores */
-    }
-    /* Outros ajustes responsivos para .h-container, .h-menu a, etc., se necessário, mas o básico de layout vem dos utilitários e do menu mobile posicionado */
+.header-icons-separator {
+  display: inline-block;
+  width: 1.5px;
+  height: 22px;
+  background: #D1EBDB;
+  margin: 0 6px;
+  border-radius: 2px;
+  opacity: 0.7;
 }
 
 .login-link {
@@ -319,17 +183,17 @@ body.dark .h-menu a.active {
 }
 
 .dropdown-menu {
-  background-color: #FCFFFD; /* Fundo claro */
-  color: #232E2C; /* Texto escuro para modo claro */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-radius: 4px;
-    padding: 8px 0;
-    z-index: 1000;
+  background-color: #FCFFFD;
+  color: #232E2C;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 8px 0;
+  z-index: 3000;
 }
 
 body.dark .dropdown-menu {
@@ -369,38 +233,19 @@ body.dark .dropdown-item:hover {
   align-items: center;
   cursor: pointer;
   color: #D1EBDB; /* Verde por padrão */
-}
-
-.toggle-theme-btn svg {
-  background: transparent !important;
-  border-radius: 50%;
-  fill: currentColor !important;
   transition: color 0.2s;
-  margin-top: -3px;
 }
 
 .toggle-theme-btn:hover {
   color: #F7FCFC; /* Branco no hover */
 }
 
-.h-container img {
-  display: block;
-  height: 50px;
-  margin-top: -8px;
+body.dark .h-user-icon,
+body.dark .toggle-theme-btn {
+  color: #D1EBDB; /* Verde no modo noturno */
 }
 
-.header-icons-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.header-icons-separator {
-  display: inline-block;
-  width: 1.5px;
-  height: 22px;
-  background: #D1EBDB;
-  margin: 0 6px;
-  border-radius: 2px;
-  opacity: 0.7;
+body.dark .h-user-icon:hover,
+body.dark .toggle-theme-btn:hover {
+  color: #F7FCFC; /* Branco no hover no modo noturno */
 }

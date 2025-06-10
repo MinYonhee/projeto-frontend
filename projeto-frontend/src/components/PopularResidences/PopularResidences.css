@@ -41,10 +41,10 @@
 }
 
 .residence-card {
-  width: 300px; 
-  border-radius: 10px; 
+  width: 320px;
+  border-radius: 10px;
   background-color: #FFFFFF;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
 }
@@ -60,27 +60,28 @@
 }
 
 .card-info {
-  padding: 1rem;
+  padding: 0.7rem;
 }
 
 .card-price {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #1B3A2F; 
-  margin-bottom: 0.5rem;
+  color: #1B3A2F;
+  margin-bottom: 0.2rem;
 }
 
 .card-title {
   font-size: 1rem;
   font-weight: 500;
-  color: #333333; 
-  margin-bottom: 0.5rem;
+  color: #333333;
+  margin-bottom: 0.2rem;
 }
 
 .card-description {
   font-size: 0.9rem;
-  color: #666666; 
+  color: #666666;
   line-height: 1.4;
+  min-height: 2.2em;
 }
 
 @media (max-width: 650px) {
@@ -110,11 +111,11 @@ body.dark .popular-residences-header .desc {
 body.dark .residence-card {
   background: #293E40;
   border: 1px solid #93BCBF;
-  color: #F7FCFC;
 }
 
 body.dark .card-title,
 body.dark .card-description,
-body.dark .card-price {
-  color: #F7FCFC;
+body.dark .card-price,
+body.dark .card-info * {
+  color: #F7FCFC !important;
 }

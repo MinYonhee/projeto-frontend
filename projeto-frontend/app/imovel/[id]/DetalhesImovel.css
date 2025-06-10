@@ -109,3 +109,66 @@
 .detalhes-comodos-list li {
   margin-bottom: 6px;
 }
+
+body.dark .detalhes-bg-wrapper {
+  background: #293E40;
+}
+
+body.dark .detalhes-info-card {
+  background: #39585A;
+}
+
+body.dark .detalhes-preco {
+  color: #F7FCFC;
+  font-size: 28px;
+  margin: 0;
+}
+
+body.dark .detalhes-label {
+  color: #F7FCFC;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+body.dark .detalhes-financiamento {
+  color: #F7FCFC;
+  font-weight: 500;
+}
+
+body.dark .detalhes-descricao {
+  color: #F7FCFC;
+  white-space: pre-line;
+  margin-top: 8px;
+}
+
+body.dark .detalhes-comodos-list {
+  color: #F7FCFC;
+  margin-top: 8px;
+  font-size: 16px;
+  padding-left: 24px;
+}
+
+body.dark .detalhes-comodos-list li {
+  color: #F7FCFC;
+  margin-bottom: 6px;
+}
+
+body.dark .detalhes-section h3 {
+  color: #F7FCFC;
+  font-weight: 600;
+}
+
+body.dark .detalhes-botao {
+  background: #F7FCFC;
+  color: #293E40;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Ajuste para garantir que todos os textos dentro do card estejam na cor correta */
+body.dark .detalhes-info-card * {
+  color: #293E40;
+}

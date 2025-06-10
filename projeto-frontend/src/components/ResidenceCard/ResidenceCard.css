@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column; 
   transition: transform 0.3s ease-in-out; 
+  position: relative;
 }
 
 .residence-card:hover {
@@ -20,22 +21,29 @@
   width: 100%; 
   height: 200px; 
   object-fit: cover; 
+  display: block;
+  z-index: 1;
 }
 
 .card-info {
   padding: 1rem; 
   display: flex;
-  line-height: 1rem;
   flex-direction: column;
   gap: 0.2rem; 
   flex: 1; 
   overflow: hidden; 
+  background: none;
+  z-index: 2;
 }
 
 .card-price {
   font-size: 1.1rem;
   font-weight: semibold;
-  color: #5B7C65; 
+  color: #5B7C65; /* Verde mais escuro para o preço */
+}
+
+.card-title {
+  color: #293E40;
 }
 
 .card-description {
@@ -49,6 +57,17 @@
   -webkit-box-orient: vertical;
 }
 
+body.dark .residence-card {
+  background-color: #293E40 !important;
+  border: 1px solid #C3D3C2;
+  color: #293E40;
+}
+
+body.dark .card-title,
+body.dark .card-description,
+body.dark .card-price {
+  color: #293E40;
+}
 
 @media (max-width: 650px) {
   .residence-card {
@@ -61,4 +80,4 @@
     transform: translateY(-10px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
   }
-}
+} 

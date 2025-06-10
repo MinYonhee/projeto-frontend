@@ -42,9 +42,6 @@ const Header = () => {
                                 <Link href="/comprar-imovel" className="dropdown-item">
                                     Comprar Imóveis
                                 </Link>
-                                <Link href="/alugar-imoveis" className="dropdown-item">
-                                    Alugar Imóveis
-                                </Link>
                             </div>
                         )}
                     </div>

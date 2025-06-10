@@ -20,7 +20,7 @@ const ContactSection = () => {
           <Link href="/comprar-imovel">
             <button className="contact-button">Quero comprar um imóvel</button>
           </Link>
-          <Link href="/alugar-imoveis">
+          <Link href="/comprar-imovel">
             <button className="contact-button">Quero alugar um imóvel</button>
           </Link>
           <Link href="/consultores">

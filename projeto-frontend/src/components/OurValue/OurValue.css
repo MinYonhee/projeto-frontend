@@ -3,14 +3,18 @@
   gap: 48px;
   align-items: flex-start;
   margin-bottom: 64px;
+  padding-left: 32px;
+  padding-bottom: 48px;
+  padding-top: 48px;
 }
 
 .valor-info {
   flex: 1;
+  margin-top: 80px;
 }
 
 .valor-label {
-  color: #888;
+  color: #507073;
   font-size: 0.9rem;
   margin-bottom: 6px;
   text-transform: uppercase;
@@ -20,22 +24,22 @@
 .valor-title {
   font-size: 2rem;
   font-weight: 800;
-  color: #111;
-  margin-bottom: 14px;
+  color: #293E40;
+  margin-bottom: 18px;
   line-height: 1.1;
 }
 
 .valor-desc {
-  color: #444;
+  color: #293E40;
   font-size: 1rem;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   max-width: 480px;
 }
 
 .valor-cards {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 24px;
 }
 
 .valor-card {
@@ -45,6 +49,7 @@
   padding: 12px 20px;
   min-width: 300px;
   max-width: 480px;
+  margin-bottom: 0;
   text-align: center;
   font-weight: 600;
   color: #333;
@@ -60,13 +65,12 @@
 .valor-card-title {
   font-weight: 600;
   font-size: 1rem;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .valor-card-description {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  color: #555;
-  text-align: left;
+  text-align: center;
 }
 
 .valor-card.open {
@@ -76,18 +80,21 @@
 
 /* ARCO */
 .valor-arch-img {
-  width: 100%;
-  max-width: 480px; /* Ajuste conforme necessário */
-  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 505px;
+  padding-top: 0;
 }
 
-.valor-arch {
+
+.valor-arch img {
   width: 100%;
-  aspect-ratio: 1 / 1.2; /* Proporção do bloco */
-  overflow: hidden;
-  border-radius: 100% 100% 0 0; /* Arredonda só o topo */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* Fundo opcional para contraste */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 200px 200px 0 0;
+  display: block;
 }
 
 /* IMAGEM SOBREPOSTA */
@@ -131,5 +138,31 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+}
+
+body.dark .valor-section {
+  background: #293E40;
+}
+
+body.dark .valor-label,
+body.dark .valor-title,
+body.dark .valor-desc {
+  color: #F7FCFC;
+}
+
+body.dark .valor-card {
+  background: transparent;
+  border: 1px solid #F7FCFC;
+  color: #F7FCFC;
+}
+
+body.dark .valor-card.open {
+  background: #39585A;
+  color: #F7FCFC;
+  border: 1px solid #F7FCFC;
+}
+
+body.dark .valor-card.open .valor-card-description {
+  color: #F7FCFC;
 }
 

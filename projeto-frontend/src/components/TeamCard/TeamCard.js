@@ -33,11 +33,10 @@ function EquipeCard({ nome, area, desc, image }) {
   return (
     <div className="equipe-card">
       <div className="equipe-card-img">
-        {image ? (
-          <img src={image} alt={nome} className="equipe-card-avatar" />
-        ) : (
-          <div className="equipe-card-img-placeholder"></div>
-        )}
+        {image && image.trim() !== ""
+          ? <img src={image} alt={nome} className="equipe-card-avatar" />
+          : <div className="equipe-card-img-placeholder"></div>
+        }
       </div>
 
       <div className="equipe-card-body">
