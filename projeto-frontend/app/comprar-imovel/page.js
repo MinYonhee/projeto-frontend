@@ -6,6 +6,7 @@ import './comprar-imovel.css';
 import React, { useState, useEffect, useCallback } from 'react';
 import FilterModal from '@/components/FilterModal/FilterModal';
 import { useRouter } from 'next/navigation';
+import { getAllProperties } from '@/services/backforappApi';
 
 // Função para gerar mais cards
 const generateMoreResidences = (startIndex) => {
@@ -25,59 +26,70 @@ const generateMoreResidences = (startIndex) => {
   }));
 };
 
-const initialResidences = [
-  {
-    id: 1,
-    image: '/placeholder.jpg',
-    price: '$15.000',
-    title: 'Apartamento em Recife - Pernambuco',
-    description: 'Possui condominio, estacionamentos com carregadores elétricos, piscinas privativas..'
-  },
-  {
-    id: 2,
-    image: '/placeholder.jpg',
-    price: '$14.000',
-    title: 'Apartamento em Ondina - Bahia',
-    description: 'Possui duas suites, estacionamento, tetos solares..'
-  },
-  {
-    id: 3,
-    image: '/placeholder.jpg',
-    price: '$15.000',
-    title: 'Casa em Porto Alegre - Rio Grande do Sul',
-    description: 'Possui primeiro andar, suites em todos os quartos, estacionamento..'
-  },
-  {
-    id: 4,
-    image: '/placeholder.jpg',
-    price: '$25.000',
-    title: 'Apartamento em Barra da Tijuca - Rio de Janeiro',
-    description: 'Possui condominio, parque, área de lazer, academia..'
-  },
-  {
-    id: 5,
-    image: '/placeholder.jpg',
-    price: '$4.500',
-    title: 'Casa em Tiradentes - Minas Gerais',
-    description: 'Possui varanda, área verde em torno da casa, dois quartos..'
-  },
-  {
-    id: 6,
-    image: '/placeholder.jpg',
-    price: '$10.000',
-    title: 'Casa em Vila Nova Conceição - São Paulo',
-    description: 'Possui primeiro andar, banheiro aquecida, tetos solares..'
-  },
-];
+// const initialResidences = [
+//   {
+//     id: 1,
+//     image: '/placeholder.jpg',
+//     price: '$15.000',
+//     title: 'Apartamento em Recife - Pernambuco',
+//     description: 'Possui condominio, estacionamentos com carregadores elétricos, piscinas privativas..'
+//   },
+//   {
+//     id: 2,
+//     image: '/placeholder.jpg',
+//     price: '$14.000',
+//     title: 'Apartamento em Ondina - Bahia',
+//     description: 'Possui duas suites, estacionamento, tetos solares..'
+//   },
+//   {
+//     id: 3,
+//     image: '/placeholder.jpg',
+//     price: '$15.000',
+//     title: 'Casa em Porto Alegre - Rio Grande do Sul',
+//     description: 'Possui primeiro andar, suites em todos os quartos, estacionamento..'
+//   },
+//   {
+//     id: 4,
+//     image: '/placeholder.jpg',
+//     price: '$25.000',
+//     title: 'Apartamento em Barra da Tijuca - Rio de Janeiro',
+//     description: 'Possui condominio, parque, área de lazer, academia..'
+//   },
+//   {
+//     id: 5,
+//     image: '/placeholder.jpg',
+//     price: '$4.500',
+//     title: 'Casa em Tiradentes - Minas Gerais',
+//     description: 'Possui varanda, área verde em torno da casa, dois quartos..'
+//   },
+//   {
+//     id: 6,
+//     image: '/placeholder.jpg',
+//     price: '$10.000',
+//     title: 'Casa em Vila Nova Conceição - São Paulo',
+//     description: 'Possui primeiro andar, banheiro aquecida, tetos solares..'
+//   },
+// ];
 
 export default function ImoveisPage() {
   const [filterText, setFilterText] = useState('');
   const [isFilterModalVisible, setIsFilterModalVisible] = useState(false);
   const [appliedFilters, setAppliedFilters] = useState({});
-  const [residences, setResidences] = useState(initialResidences);
+  const [residences, setResidences] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const router = useRouter();
+
+  const handleFetchProperties = async () => {
+    try {
+      const result = await getAllProperties();
+      console.log(result.results)
+      setResidences(Array.isArray(result.results) ? result.results : []);
+    } catch (error) {
+      console.error('Error fetching properties:', error);
+      setResidences([]); 
+    }
+  }
 
   const handleFilterChange = (event) => {
     setFilterText(event.target.value);
@@ -169,6 +181,10 @@ export default function ImoveisPage() {
     return modalMatch;
   });
 
+  useEffect(() => {
+    handleFetchProperties();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -208,16 +224,16 @@ export default function ImoveisPage() {
         </div>
         <div className="imoveis-grid">
           {filteredResidences.map((res, idx) => (
-            <div key={res.id} onClick={() => router.push(`/imovel/${res.id}`)} style={{ cursor: 'pointer' }}>
-              <ResidenceCard {...res} />
+            <div key={res.objectId} onClick={() => router.push(`/imovel/${res.objectId}`)} style={{ cursor: 'pointer' }}>
+              <ResidenceCard image={res.photos[0]} description={res.description} price={res.price} title={res.title} />
             </div>
           ))}
         </div>
-        {hasMore && (
+        {/* {hasMore && (
           <div id="load-more-trigger" style={{ height: '20px', margin: '20px 0' }}>
             {isLoading && <div className="loading-spinner">Carregando mais imóveis...</div>}
           </div>
-        )}
+        )} */}
       </main>
       <FilterModal
         isVisible={isFilterModalVisible}

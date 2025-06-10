@@ -2,10 +2,11 @@
 import { useParams } from "next/navigation";
 import { FaCheckCircle } from 'react-icons/fa';
 import Header from "@/components/Header/Header";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './DetalhesImovel.css';
 import { useRouter } from "next/navigation";
 import ResidenceCard from "@/components/ResidenceCard/ResidenceCard";
+import { getPropertyById } from "@/services/backforappApi";
 
 const mockImoveis = [
   {
@@ -147,6 +148,26 @@ export default function ImovelDetalhePage() {
   const { id } = useParams();
   const imovel = mockImoveis.find(imv => String(imv.id) === String(id)) || mockImoveis[0];
   const router = useRouter();
+  const [propertyFound, setPropertyFound] = useState(null);
+
+  const handleFecthPropertyById = async (propertyId) => {
+    try {
+      const result = await getPropertyById(propertyId);
+      setPropertyFound(result);
+    } catch (error) {
+      console.error("Erro ao buscar imóvel:", error);
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    if (id) {
+      handleFecthPropertyById(id);
+    } else {
+      router.push('/imoveis');
+    }
+  }
+  , [id, router]);
 
   return (
     <>
@@ -157,36 +178,43 @@ export default function ImovelDetalhePage() {
             {/* Galeria de imagens */}
             <div className="detalhes-galeria">
               <div className="detalhes-galeria-grid">
-                {imovel.images.map((img, idx) => (
+                {propertyFound && propertyFound.photos.map((img, idx) => (
                   <img key={idx} src={img} alt="Foto do imóvel" />
                 ))}
               </div>
             </div>
             {/* Card de preço e info */}
-            <div className="detalhes-info">
-              <div className="detalhes-info-card">
-                <h2 className="detalhes-preco">{imovel.price}</h2>
-                <div className="detalhes-label">Condomínio <span style={{ float: 'right' }}>{imovel.condominio}</span></div>
-                <div className="detalhes-label">IPTU <span style={{ float: 'right' }}>{imovel.iptu}</span></div>
-                <div className="detalhes-financiamento"><FaCheckCircle style={{ marginRight: 6 }} /> Simular Financiamento</div>
-                <button className="detalhes-botao">Entrar em contato com um consultor</button>
+            {propertyFound && (<>
+              <div className="detalhes-info">
+                <div className="detalhes-info-card">
+                  <h2 className="detalhes-preco">R$ {propertyFound.price}</h2>
+                  <div className="detalhes-label">Condomínio <span style={{ float: 'right' }}>R$ {propertyFound.value} / mês</span></div>
+                  <div className="detalhes-label">IPTU <span style={{ float: 'right' }}>R$ {propertyFound.iptu} / mês</span></div>
+                  <div className="detalhes-financiamento"><FaCheckCircle style={{ marginRight: 6 }} /> Simular Financiamento</div>
+                  <button className="detalhes-botao">Entrar em contato com um consultor</button>
+                </div>
               </div>
+             
+            </>)}
+          </div>
+          {propertyFound && (
+            <div className="detalhes-section">
+              <h3>Descrição do Imóvel</h3>
+              <p className="detalhes-descricao">{propertyFound.description}</p>
             </div>
-          </div>
-          {/* Descrição */}
-          <div className="detalhes-section">
-            <h3>Descrição do Imóvel</h3>
-            <p className="detalhes-descricao">{imovel.descricao}</p>
-          </div>
-          {/* Cômodos */}
+          )}
+        {propertyFound && (
           <div className="detalhes-section">
             <h3>Cômodos</h3>
             <ul className="detalhes-comodos-list">
-              {imovel.comodos.map((c, idx) => (
+              {propertyFound.rooms.map((c, idx) => (
                 <li key={idx}>{c}</li>
               ))}
             </ul>
           </div>
+        )}
+          {/* Cômodos */}
+          
         </main>
       </div>
     </>

@@ -1,61 +1,66 @@
 .valor-section {
   display: flex;
-  gap: 48px; /* Keep gap from previous */
-  align-items: flex-start; /* Align items to the top */
-  margin-bottom: 64px; /* Keep margin */
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 64px;
 }
+
 .valor-info {
   flex: 1;
 }
+
 .valor-label {
-  color: #888; /* Keep color */
-  font-size: 0.9rem; /* Keep size */
-  margin-bottom: 6px; /* Keep margin */
-  text-transform: uppercase; /* Keep uppercase */
-  font-weight: 600; /* Keep bolder */
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
+
 .valor-title {
-  font-size: 2rem; /* Keep size */
-  font-weight: 800; /* Keep very bold */
-  color: #111; /* Keep dark color */
-  margin-bottom: 14px; /* Keep margin */
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 14px;
   line-height: 1.1;
 }
+
 .valor-desc {
-  color: #444; /* Keep darker grey */
-  font-size: 1rem; /* Keep size */
-  margin-bottom: 28px; /* Keep margin */
-  max-width: 480px; /* Keep max width */
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 28px;
+  max-width: 480px;
 }
+
 .valor-cards {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Keep gap between buttons */
+  gap: 12px;
 }
 
 .valor-card {
   background: #fff;
-  border: 1px solid #ddd; /* Keep thin border */
-  border-radius: 6px; /* Keep slightly less rounded */
-  padding: 12px 20px; /* Keep padding */
-  min-width: 300px; /* Keep min-width */
-  max-width: 480px; /* Keep max-width */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 20px;
+  min-width: 300px;
+  max-width: 480px;
   margin-bottom: 0;
   text-align: center;
   font-weight: 600;
   color: #333;
   cursor: pointer;
   transition: background 0.2s ease;
-  box-shadow: none; /* No shadow */
+  box-shadow: none;
 }
 
 .valor-card:hover {
-  background: #f5f5f5; /* Keep lighter hover */
+  background: #f5f5f5;
 }
 
 .valor-card-title {
   font-weight: 600;
-  font-size: 1rem; /* Keep size */
+  font-size: 1rem;
   margin-bottom: 0;
 }
 
@@ -66,47 +71,40 @@
 .valor-arch-img {
   flex: 1;
   display: flex;
-  align-items: flex-start; /* Align to top */
+  align-items: flex-start;
   justify-content: center;
   min-width: 320px;
-  padding-top: 0; /* Remove extra padding */
+  padding-top: 0;
 }
 
 .valor-arch {
-  width: 380px; /* Keep width */
-  height: 420px; /* Keep height */
-  background: #e5e7eb; /* Placeholder color */
-  /* Keep current border-radius attempt for oval */
+  width: 380px;
+  height: 420px;
+  background: #e5e7eb;
   border-radius: 50% 50% 0 0 / 50% 50% 0 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Keep adjusted shadow */
-  border: none; /* No border */
-  overflow: hidden; /* Ensure content stays within oval */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.valor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% 50% 0 0 / 50% 50% 0 0;
 }
 
 .valor-card.open {
-  /* Styles for the open state, e.g., darker border or subtle shadow */
-  border-color: #aaa; /* Example: a slightly darker border when open */
-  padding-bottom: 20px; /* Add padding to accommodate description */
+  border-color: #aaa;
+  padding-bottom: 20px;
 }
 
 .valor-card-description {
-  margin-top: 12px; /* Space above description */
-  font-size: 0.9rem; /* Smaller font size for description */
-  color: #555; /* Slightly lighter color for description */
-  text-align: left; /* Align description text to the left */
-}
-
-.team-arrows {
-  display: none; /* Esconde as setas por padrão */
-}
-
-@media (max-width: 768px) {
-  .team-arrows {
-    display: flex; /* Mostra as setas em telas menores */
-    justify-content: center;
-    align-items: center;
-    gap: 16px; /* Espaçamento entre as setas */
-  }
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
 }
 
 @media (max-width: 900px) {
@@ -114,20 +112,24 @@
     flex-direction: column;
     gap: 24px;
   }
+
   .valor-arch-img {
     min-width: 0;
     justify-content: flex-start;
   }
+
   .valor-arch {
     width: 100%;
     max-width: 320px;
     height: 220px;
   }
 }
+
 @media (max-width: 700px) {
   .valor-title {
     font-size: 1.3rem;
   }
+
   .valor-desc {
     font-size: 0.95rem;
   }
