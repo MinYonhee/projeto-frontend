@@ -183,12 +183,11 @@ body.dark .toggle-theme-btn:hover {
 }
 
 .dropdown-menu {
-  background-color: #FCFFFD;
-  color: #232E2C;
+  background-color: var(--header-bg); /* Igual ao topo */
+  color: #F7FCFC; /* Texto claro */
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
   min-width: 200px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   border-radius: 4px;
@@ -214,8 +213,10 @@ body.dark .dropdown-item {
 }
 
 .dropdown-item:hover {
-    background-color: #E7FFF0;
-    color: #232E2C; /* Mantém texto escuro no hover */
+  background-color: #D1EBDB; /* Fundo claro */
+  color: #232E2C !important; /* Texto escuro forçado */
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 body.dark .dropdown-item:hover {
