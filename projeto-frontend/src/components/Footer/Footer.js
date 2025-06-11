@@ -2,8 +2,22 @@ import React from 'react';
 import './Footer.css';
 import Link from 'next/link';
 import { FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { saveANewContactInHistory } from '@/services/backforappApi';
 
 const Footer = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const formValues = Object.fromEntries(formData);
+    
+    try {
+      await saveANewContactInHistory(formValues.fullName, formValues.email, formValues.message)
+    } catch (error) {
+      alert("Falha ao enviar solicitação de contato")
+    }
+    
+  }
+
   return (
     <footer className="footer-section">
       <div className="footer-content">
@@ -21,10 +35,10 @@ const Footer = () => {
         {/* Coluna Direita - Contato */}
         <div className="footer-contact card-style">
           <h2 className="footer-title">Fale com a nossa equipe</h2>
-          <form className="contact-form">
-            <input type="text" placeholder="Nome completo" />
-            <input type="email" placeholder="E-mail" />
-            <textarea placeholder="Sua mensagem" />
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <input type="text"  name="fullName" placeholder="Nome completo" />
+            <input type="email" name="email" placeholder="E-mail" />
+            <textarea name="message"  placeholder="Sua mensagem" />
             <button type="submit">Enviar mensagem</button>
           </form>
         </div>
