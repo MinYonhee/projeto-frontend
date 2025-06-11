@@ -72,5 +72,19 @@ const getAllConsultants = async () => {
   }
 }
 
-export { getAllProperties, getPropertyById, registerNewUser, login, getAllConsultants };
+const saveANewContactInHistory = async (fullName, email, message) => {
+   try {
+    const respose = await api.post('/classes/Contact', {
+      full_name: fullName,
+      message,
+      email
+    });
+
+    return respose;
+  } catch (error) {
+    console.error(`An error occurred while trying to save a contact: ${error}`);
+  }
+}
+
+export { getAllProperties, getPropertyById, registerNewUser, login, getAllConsultants, saveANewContactInHistory };
 
