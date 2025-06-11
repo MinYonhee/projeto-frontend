@@ -41,7 +41,7 @@ projeto-frontend/
 
 1. Clone o repositório:
 ```bash
-git clone [URL_DO_REPOSITÓRIO]
+git clone https://github.com/MinYonhee/projeto-frontend.git
 ```
 
 2. Instale as dependências:
