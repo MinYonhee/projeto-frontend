@@ -62,5 +62,15 @@ const login = async (email, password) => {
   }
 }
 
-export { getAllProperties, getPropertyById, registerNewUser, login};
+const getAllConsultants = async () => {
+   try {
+    const respose = await api.get('/classes/Consultant');
+
+    return respose;
+  } catch (error) {
+    console.error(`An error occurred while trying to login: ${error}`);
+  }
+}
+
+export { getAllProperties, getPropertyById, registerNewUser, login, getAllConsultants };
 

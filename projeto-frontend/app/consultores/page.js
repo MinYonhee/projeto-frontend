@@ -1,5 +1,9 @@
+"use client"
+
 import Header from '@/components/Header/Header';
 import '@/components/TeamCard/TeamCard.css';
+import { getAllConsultants } from '@/services/backforappApi';
+import { useEffect, useState } from 'react';
 
 const consultores = [
   {
@@ -40,7 +44,19 @@ const consultores = [
   },
 ];
 
+
 export default function ConsultoresPage() {
+  const [consultants, setConsultants] = useState(null);
+
+  const handleFetchAllConsultants = async () => {
+    const result = await getAllConsultants();
+    setConsultants(result.data.results);
+  }
+
+  useEffect(() => {
+    handleFetchAllConsultants();
+  }, [])
+
   return (
     <>
       <Header />
@@ -56,22 +72,25 @@ export default function ConsultoresPage() {
           <h1 className="equipe-title">Setor de Vendas</h1>
 
           <div className="consultores-grid">
-            {consultores.map((p, i) => (
+            {consultants && consultants.map((p, i) => (
               <div key={i} className="equipe-card">
                 <div className="equipe-card-img">
-                  {p.image ? (
-                    <img src={p.image} alt={p.nome} className="equipe-card-avatar" />
+                  {p.photo ? (
+                    <img src={p.photo} alt={p.name} className="equipe-card-avatar" />
                   ) : (
                     <div className="equipe-card-img-placeholder"></div>
                   )}
                 </div>
                 <div className="equipe-card-body">
-                  <div className="equipe-card-area">{p.area}</div>
-                  <div className="equipe-card-nome">{p.nome}</div>
-                  <div className="equipe-card-desc">{p.desc}</div>
+                  <div className="equipe-card-area">Contato</div>
+                  <div className="equipe-card-nome">{p.name}</div>
+                  <div className="equipe-card-desc">{p.contact}</div>
                 </div>
               </div>
-            ))}
+            ))} 
+            {consultants == null && (
+              <p>Nenhum consultor encontrado</p>
+            )}
           </div>
         </section>
       </main>
