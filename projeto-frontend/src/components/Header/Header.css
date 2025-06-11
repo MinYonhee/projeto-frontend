@@ -183,8 +183,7 @@ body.dark .toggle-theme-btn:hover {
 }
 
 .dropdown-menu {
-  background-color: var(--header-bg); /* Igual ao topo */
-  color: #F7FCFC; /* Texto claro */
+  background-color: #FFFFFF; /* Garante fundo branco para modo claro */
   position: absolute;
   top: 100%;
   left: 0;
@@ -195,15 +194,23 @@ body.dark .toggle-theme-btn:hover {
   z-index: 3000;
 }
 
+.dropdown-container:hover .dropdown-menu {
+  background-color: #E0E0E0; /* Cor de fundo no hover para modo claro */
+}
+
 body.dark .dropdown-menu {
   background-color: #65898C; /* Fundo escuro para modo noturno */
   color: #F7FCFC; /* Texto claro para modo noturno */
 }
 
+body.dark .dropdown-container:hover .dropdown-menu {
+  background-color: #4A6B6E; /* Cor de fundo no hover para modo noturno */
+}
+
 .dropdown-item {
     display: block;
     padding: 10px 20px;
-    color: #232E2C; /* Texto escuro para modo claro */
+    color: #232E2C !important; /* Garante texto escuro visível no modo claro */
     text-decoration: none;
     transition: background-color 0.3s ease;
 }

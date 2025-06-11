@@ -61,7 +61,7 @@
 }
 
 .detalhes-label {
-  color: #888;
+  color: #555;
   font-size: 16px;
   margin: 8px 0;
 }
@@ -91,6 +91,7 @@
 
 .detalhes-section h3 {
   font-weight: 600;
+  color: #333;
 }
 
 .detalhes-descricao {
@@ -166,9 +167,4 @@ body.dark .detalhes-botao {
   padding: 12px 0;
   font-size: 16px;
   cursor: pointer;
-}
-
-/* Ajuste para garantir que todos os textos dentro do card estejam na cor correta */
-body.dark .detalhes-info-card * {
-  color: #293E40;
 }

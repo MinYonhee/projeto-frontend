@@ -53,7 +53,7 @@ function LoginPage() {
     <div className="login-container">
       <div className="login-header">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+          src="/assets/logo.png"
           alt="logo"
           className="login-logo"
         />

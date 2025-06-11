@@ -37,7 +37,7 @@ body.dark {
 
 body {
   background-color: var(--background);
-  color: var(--header-text);
+  color: var(--black);
 }
 
 a {

@@ -75,7 +75,13 @@ function SignupPage() {
   return (
     <div className="signup-container">
       <div className="signup-header">
-        <img src="/vercel.svg" alt="logo" className="signup-logo" />
+        <img 
+          src="/assets/logo.png" 
+          alt="logo" 
+          className="signup-logo" 
+          onClick={() => router.push('/')}
+          style={{ cursor: 'pointer' }}
+        />
       </div>
       <div className="signup-content">
         <div className="signup-form-container">

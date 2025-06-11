@@ -82,7 +82,6 @@ body::after,
 }
 
 .form-group input[type="email"],
-.form-group input[type="password"],
 .form-group input[type="text"] {
   width: 100%;
   padding: 6px 10px;
@@ -101,6 +100,15 @@ body::after,
   border-radius: 4px;
   background-color: #f8f9fa;
   padding: 0 10px;
+}
+
+.password-input-container input {
+  border: none;
+  background: transparent;
+  padding: 6px 0;
+  flex: 1;
+  font-size: 0.8em;
+  outline: none;
 }
 
 .password-toggle-icon {

@@ -210,4 +210,13 @@ body.dark .imoveis-filter-box input {
 
 body.dark .imoveis-filter-box input::placeholder {
   color: #F7FCFC !important;
+}
+
+body.dark .filter-option-tag {
+  background-color: #39585A;
+  color: #F7FCFC;
+}
+
+body.dark .remove-filter {
+  color: #F7FCFC;
 } 
