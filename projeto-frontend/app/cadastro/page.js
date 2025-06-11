@@ -58,7 +58,8 @@ function SignupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      await registerNewUser(formData.nome, formData.sobrenome, formData.email, formData.telefone, formData.senha);
+      const response = await registerNewUser(formData.nome, formData.sobrenome, formData.email, formData.telefone, formData.senha);
+      localStorage.setItem("sessionToken", response.sessionToken);
       router.push("/");
     }
   };
@@ -68,7 +69,7 @@ function SignupPage() {
   };
 
   const handleLoginRedirect = () => {
-    router.push('/');
+    router.push('/login');
   };
 
   return (

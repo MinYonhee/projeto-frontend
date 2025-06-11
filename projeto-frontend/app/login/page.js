@@ -5,6 +5,7 @@ import './login.css';
 import { LiaUserCircle } from 'react-icons/lia';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { login } from '@/services/backforappApi'; 
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -30,10 +31,18 @@ function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Formulário válido', email, password);
+      try {
+        const result = await login(email, password);
+        if (result.status === 200) {
+          router.push("/");
+        }
+      } catch (error) {
+        setErrors("Email or username invalid");
+        alert("E-mail ou senha inválidos.");
+      }
     } else {
       console.log('Formulário inválido', errors);
     }
