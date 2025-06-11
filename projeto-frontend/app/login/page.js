@@ -41,6 +41,7 @@ function LoginPage() {
         }
       } catch (error) {
         setErrors("Email or username invalid");
+        
         alert("E-mail ou senha inválidos.");
       }
     } else {
